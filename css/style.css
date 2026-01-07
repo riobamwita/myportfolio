@@ -269,3 +269,50 @@ img {
 }
 
 /* Future portfolio cards can be added here when ready */
+/* Ensure all social icons are same size and spacing */
+.contact-socials a img {
+    width: 30px;
+    height: 30px;
+    transition: transform 0.3s;
+}
+
+.contact-socials a:hover img {
+    transform: scale(1.2);
+}
+/* =====================
+   PORTFOLIO ITEMS
+===================== */
+.portfolio-item {
+    background: #353535;
+    padding: 20px 20px 20px 80px;
+    border-radius: 12px;
+    margin-bottom: 30px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.5);
+    position: relative;
+}
+
+.portfolio-number {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    color: #fff;
+    font-weight: 700;
+    font-size: 1.5em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.portfolio-item h2 {
+    margin: 0 0 10px 0;
+    font-size: 1.6em;
+}
+
+.portfolio-item p {
+    color: #dcdcdc;
+    font-size: 0.95em;
+    line-height: 1.6;
+}
