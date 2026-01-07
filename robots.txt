@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://riobamwita.vercel.app/sitemap.xml
