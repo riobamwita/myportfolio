@@ -1,9 +1,14 @@
 {
   "rewrites": [
+    { "source": "/", "destination": "/index.html" },
     { "source": "/about", "destination": "/about.html" },
     { "source": "/portfolio", "destination": "/portfolio.html" },
-    { "source": "/contact", "destination": "/contact.html" },
-    { "source": "/", "destination": "/index.html" }
+    { "source": "/contact", "destination": "/contact.html" }
   ],
-  "cleanUrls": true
+  "routes": [
+    {
+      "src": "/(.*\\.html)$",
+      "dest": "/$1"
+    }
+  ]
 }
