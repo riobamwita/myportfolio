@@ -7,12 +7,18 @@ body {
     padding: 0;
     background: #1f1f1f;
     color: #f1f1f1;
-    font-size: 16px; /* increased from 14px */
+    font-size: 16px;
+    line-height: 1.6;
 }
 
 a {
     text-decoration: none;
     color: #f1f1f1;
+    transition: color 0.3s;
+}
+
+a:hover {
+    color: #aee108;
 }
 
 /* =====================
@@ -20,20 +26,22 @@ a {
 ===================== */
 header {
     background: linear-gradient(135deg, #1b5e20, #2e7d32, #33691e);
-    padding: 14px 20px; /* slightly bigger for readability */
+    padding: 14px 20px;
 }
 
 nav ul {
     list-style: none;
     display: flex;
     justify-content: flex-end;
-    gap: 24px; /* slightly more spacing */
+    gap: 24px;
+    margin: 0;
+    padding: 0;
 }
 
 nav li a {
     color: #e8f5e9;
     font-weight: 600;
-    font-size: 1em; /* bigger font */
+    font-size: 1em;
     letter-spacing: 0.6px;
 }
 
@@ -47,13 +55,13 @@ nav li a.active {
 ===================== */
 .hero {
     text-align: center;
-    padding: 70px 20px; /* a bit more padding */
+    padding: 70px 20px;
     background: #262626;
 }
 
 .hero h1 {
     font-family: 'Cinzel', serif;
-    font-size: 3.2em; /* bigger */
+    font-size: 3.2em;
     color: #66bb6a;
     letter-spacing: 2px;
     margin: 0;
@@ -69,7 +77,7 @@ nav li a.active {
 }
 
 .services h2 {
-    font-size: 2.4em; /* bigger */
+    font-size: 2.4em;
     margin-bottom: 35px;
     color: #c8e6c9;
 }
@@ -89,7 +97,7 @@ nav li a.active {
     background: #353535;
     padding: 24px 20px;
     border-radius: 12px;
-    width: 245px; /* slightly smaller width */
+    width: 245px;
     box-shadow: 0 6px 14px rgba(0,0,0,0.4);
     color: #f1f1f1;
     border-left: 5px solid transparent;
@@ -105,7 +113,7 @@ nav li a.active {
 }
 
 .card img {
-    width: 80px; /* slightly smaller for consistency */
+    width: 80px;
     height: 80px;
     object-fit: contain;
     margin-bottom: 12px;
@@ -113,11 +121,11 @@ nav li a.active {
 
 .card h3 {
     margin-top: 6px;
-    font-size: 1.35em; /* bigger */
+    font-size: 1.35em;
 }
 
 .card p {
-    font-size: 0.85em; /* bigger */
+    font-size: 0.85em;
     color: #dcdcdc;
     text-align: center;
     margin-top: 8px;
@@ -136,7 +144,6 @@ nav li a.active {
 .card.web h3 { color: #ce93d8; }
 .card.env h3 { color: #aed581; }
 
-/* Separator line under card title */
 .card h3::after {
     content: "";
     display: block;
@@ -159,7 +166,7 @@ nav li a.active {
 .about h1, .contact h1 {
     font-family: 'Cinzel', serif;
     font-weight: 700;
-    font-size: 2.3em; /* bigger */
+    font-size: 2.3em;
     margin-bottom: 20px;
     color: #ffffff;
     letter-spacing: 1px;
@@ -169,7 +176,7 @@ nav li a.active {
     max-width: 700px;
     margin: 12px auto;
     color: #dddddd;
-    font-size: 1.05em; /* bigger */
+    font-size: 1.05em;
 }
 
 /* =====================
@@ -178,43 +185,11 @@ nav li a.active {
 footer {
     background: transparent;
     color: #bdbdbd;
-    font-size: 0.85em; /* slightly bigger */
+    font-size: 0.85em;
     text-align: right;
     padding: 0 15px;
     position: relative;
     margin-top: 2rem;
-}
-
-/* =====================
-   IMAGES & SOCIALS
-===================== */
-.contact-row img,
-.contact-socials img,
-.about-icons .icon {
-    object-fit: contain;
-}
-
-.contact-socials {
-    display: flex;
-    justify-content: center;
-    gap: 22px;
-    margin-top: 25px;
-}
-
-.contact-socials img {
-    width: 36px; /* slightly bigger */
-    height: 36px;
-    transition: transform 0.3s, opacity 0.3s;
-}
-
-.contact-socials img:hover {
-    transform: scale(1.1);
-    opacity: 0.85;
-}
-
-img {
-    max-width: 36px; /* adjust globally */
-    height: auto;
 }
 
 /* =====================
@@ -224,7 +199,7 @@ img {
     max-width: 900px;
     margin: 0 auto;
     text-align: left;
-    line-height: 1.8; /* improved readability */
+    line-height: 1.8;
     position: relative;
 }
 
@@ -243,7 +218,7 @@ img {
 }
 
 .about-icons .icon {
-    width: 56px; /* slightly bigger */
+    width: 56px;
     height: 56px;
     object-fit: contain;
     flex-shrink: 0;
@@ -265,14 +240,14 @@ img {
     border-radius: 10px;
     margin: 28px auto;
     max-width: 850px;
+    text-align: left;
 }
 
 .references h2 {
     font-family: 'Cinzel', serif;
     color: #ffffff;
-    font-size: 1.75em; /* bigger */
+    font-size: 1.75em;
     margin-bottom: 18px;
-    text-align: left;
 }
 
 .references ul {
@@ -282,9 +257,55 @@ img {
 
 .references li {
     color: #dcdcdc;
-    font-size: 1em; /* bigger */
+    font-size: 1em;
     line-height: 1.6;
     margin-bottom: 14px;
+}
+
+/* =====================
+   TESTIMONIAL CARDS
+===================== */
+.testimonials {
+    max-width: 900px;
+    margin: 0 auto 50px auto;
+}
+
+.testimonial-card {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+    margin-bottom: 2rem;
+    padding: 1.8rem;
+    border-radius: 12px;
+    background: #4d4444;
+    flex-wrap: wrap;
+}
+
+.testimonial-img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    flex-shrink: 0;
+}
+
+.testimonial-text h3 {
+    margin: 0;
+    font-size: 1.4rem;
+    font-weight: 600;
+}
+
+.testimonial-text span {
+    display: block;
+    font-size: 1.15rem;
+    color: #aee108;
+    margin-bottom: 0.4rem;
+}
+
+.testimonial-text p {
+    margin: 0;
+    line-height: 1.6;
+    font-size: 1.05rem;
 }
 
 /* =====================
@@ -298,9 +319,9 @@ img {
 }
 
 .portfolio-section h1 {
-    font-family: 'Cinzel', serif !important;
+    font-family: 'Cinzel', serif;
     font-weight: 700;
-    font-size: 2.3em; /* bigger */
+    font-size: 2.3em;
     margin-bottom: 22px;
     color: #ffffff;
     text-align: center;
@@ -331,7 +352,7 @@ img {
     border-radius: 50%;
     color: #fff;
     font-weight: 700;
-    font-size: 1.8em; /* bigger */
+    font-size: 1.8em;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -339,18 +360,18 @@ img {
 
 .portfolio-item h2 {
     margin: 0 0 10px 0;
-    font-size: 1.8em; /* bigger */
+    font-size: 1.8em;
     font-weight: 600;
 }
 
 .portfolio-item p {
     color: #dcdcdc;
-    font-size: 1em; /* bigger */
+    font-size: 1em;
     line-height: 1.7;
 }
 
 .portfolio-item img {
-    max-width: 90%; /* smaller */
+    max-width: 90%;
     height: auto;
     border-radius: 10px;
     margin-top: 15px;
@@ -358,160 +379,37 @@ img {
 }
 
 /* =====================
-   GIS SUB-PROJECTS
-===================== */
-.gis-projects {
-    margin-top: 25px;
-}
-
-.gis-project {
-    display: flex;
-    gap: 18px;
-    margin-bottom: 28px;
-}
-
-.gis-number {
-    width: 36px;
-    height: 36px;
-    background: #29b6f6;
-    color: #000;
-    font-weight: 700;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-    font-size: 1em;
-}
-
-.gis-content h3 {
-    margin: 0 0 6px 0;
-    font-size: 1.2em;
-    color: #4fc3f7;
-}
-
-.gis-content p {
-    margin: 0;
-    font-size: 1em;
-    line-height: 1.6;
-    color: #dcdcdc;
-}
-
-.gis-content img {
-    margin-top: 10px;
-    max-width: 100%;
-    border-radius: 8px;
-}
-
-/* =====================
-   TESTIMONIALS / PROFESSIONAL RECOMMENDATIONS
-===================== */
-.testimonials {
-    margin: 4rem 0;
-}
-
-.testimonials h2 {
-    text-align: center;
-    margin-bottom: 2.5rem;
-    font-family: 'Cinzel', serif;
-    font-size: 2.2em; /* bigger */
-}
-
-.testimonial-card {
-    display: flex;
-    gap: 1.5rem;
-    align-items: flex-start;
-    margin-bottom: 2rem;
-    padding: 2rem; /* bigger */
-    border-radius: 12px;
-    background: #4d4444;
-}
-
-.testimonial-card .img-wrapper {
-    width: 120px;
-    height: 120px;
-    border-radius: 50%;
-    overflow: hidden; /* ensures image stays round */
-    flex-shrink: 0;
-}
-
-.testimonial-card .img-wrapper img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block; /* removes tiny gaps */
-}
-
-.testimonial-text {
-    flex: 1;
-}
-
-.testimonial-text h3 {
-    margin: 0;
-    font-size: 1.4rem; /* bigger */
-    font-weight: 600;
-}
-
-.testimonial-text span {
-    display: block;
-    font-size: 1.15rem; /* bigger */
-    color: #aee108;
-    margin-bottom: 0.4rem;
-}
-
-.testimonial-text p {
-    margin: 0;
-    line-height: 1.6;
-    font-size: 1.05rem; /* bigger */
-}
-
-/* Clickable links for testimonial images/names */
-.testimonial-link {
-    text-decoration: none;
-    color: inherit;
-}
-
-.testimonial-link img:hover {
-    opacity: 0.85;
-    transform: scale(1.03);
-    transition: 0.3s ease;
-}
-
-.testimonial-text h3 a:hover {
-    text-decoration: underline;
-    color: #222;
-}
-
-/* =====================
    RESPONSIVE
 ===================== */
 @media (max-width: 900px) {
+    .testimonial-card {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .testimonial-img {
+        width: 120px;
+        height: 120px;
+        margin-bottom: 12px;
+    }
+
     .portfolio-item {
         padding-left: 70px;
     }
+
     .portfolio-number {
         width: 50px;
         height: 50px;
         font-size: 1.6em;
     }
+
     .portfolio-item h2 {
         font-size: 1.6em;
     }
+
     .portfolio-item p {
         font-size: 1em;
-    }
-    .testimonial-card {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-        padding: 1.5rem;
-    }
-    .testimonial-card .img-wrapper {
-        margin-bottom: 15px;
-    }
-    .testimonial-card img {
-        width: 100px;
-        height: 100px;
     }
 }
 
@@ -522,15 +420,15 @@ img {
     .card h3 { font-size: 1.2em; }
     .portfolio-item h2 { font-size: 1.4em; }
     .portfolio-number { width: 45px; height: 45px; font-size: 1.4em; }
-    .testimonial-card img { width: 90px; height: 90px; }
+    .testimonial-img { width: 90px; height: 90px; }
     .testimonial-text h3 { font-size: 1.2rem; }
     .testimonial-text span { font-size: 1rem; }
     .testimonial-text p { font-size: 0.95rem; }
 }
 
-/* =======================
+/* =====================
    LOAD MORE BUTTON
-======================= */
+===================== */
 .load-projects-container {
     text-align: center;
     margin: 40px 0;
@@ -540,8 +438,8 @@ img {
     background-color: rgba(84, 108, 108, 0.8);
     color: #ffffff;
     border: none;
-    padding: 10px 22px; /* slightly bigger */
-    font-size: 13px; /* bigger */
+    padding: 10px 22px;
+    font-size: 13px;
     font-weight: 600;
     cursor: pointer;
     border-radius: 6px;
@@ -563,53 +461,19 @@ img {
     font-family: 'Poppins', Arial, sans-serif;
 }
 
-/* =======================
+/* =====================
    CV BUTTON
-======================= */
+===================== */
 .cv-button {
-  display: inline-block;
-  padding: 16px 30px;
-  background-color: #058585;
-  color: #ffffff;
-  text-decoration: none;
-  font-weight: 600;
-  border-radius: 6px;
-  transition: background-color 0.3s ease;
+    display: inline-block;
+    padding: 16px 30px;
+    background-color: #058585;
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 600;
+    border-radius: 6px;
+    transition: background-color 0.3s ease;
 }
 .cv-button:hover {
-  background-color: #046f6f;
+    background-color: #046f6f;
 }
-
-/* =======================
-   MATRIX EFFECT FOR WEB DEV CARD
-======================= */
-.matrix-overlay {
-  position: absolute;
-  inset: 0;
-  background:
-    repeating-linear-gradient(
-      0deg,
-      rgba(0, 255, 70, 0.08) 0px,
-      rgba(0, 255, 70, 0.08) 1px,
-      transparent 1px,
-      transparent 6px
-    ),
-    repeating-linear-gradient(
-      90deg,
-      rgba(0, 255, 70, 0.08) 0px,
-      rgba(0, 255, 70, 0.08) 1px,
-      transparent 1px,
-      transparent 6px
-    );
-  opacity: 0;
-  pointer-events: none;
-  animation: matrix-scan 1.2s linear infinite;
-}
-
-@keyframes matrix-scan {
-  from { background-position: 0 0; }
-  to { background-position: 0 20px; }
-}
-
-.matrix-active .matrix-overlay { opacity: 1; }
-.portfolio-item { position: relative; overflow: hidden; }
