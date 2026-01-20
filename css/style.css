@@ -575,3 +575,19 @@ footer {
     opacity: 0.85;
     transition: color 0.3s;
 }
+/* =====================
+   SERVICE CARDS RESPONSIVE FIX
+===================== */
+@media (max-width: 600px) {
+    .service-cards {
+        flex-direction: column; /* stack cards vertically */
+        align-items: center;    /* center them */
+        gap: 20px;              /* spacing between cards */
+    }
+
+    .service-cards .card {
+        width: 90%;             /* make cards fill most of the screen width */
+        max-width: 400px;       /* optional max width */
+        padding: 20px;          /* adjust padding for mobile */
+    }
+}

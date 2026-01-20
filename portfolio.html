@@ -267,6 +267,20 @@ document.addEventListener('DOMContentLoaded', () => {
 <footer>
   <p>&copy; 2025 Rioba Mwita | All rights reserved</p>
 </footer>
+<style>
+/* Matrix overlay full card */
+.matrix-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; /* so it doesn’t block clicks */
+    overflow: hidden;
+    z-index: 10;
+}
+</style>
+
 <script>
 document.addEventListener('DOMContentLoaded', () => {
   const cards = document.querySelectorAll('.portfolio-item');
@@ -275,10 +289,18 @@ document.addEventListener('DOMContentLoaded', () => {
     if (card.textContent.includes('Web & App Development')) {
       const overlay = card.querySelector('.matrix-overlay');
 
-      card.addEventListener('click', () => {
+      // Ensure overlay covers entire card
+      overlay.style.position = 'absolute';
+      overlay.style.top = '0';
+      overlay.style.left = '0';
+      overlay.style.width = '100%';
+      overlay.style.height = '100%';
+      overlay.style.pointerEvents = 'none';
+      overlay.style.zIndex = '10';
+
+      function runMatrixEffect() {
         card.classList.add('matrix-active');
 
-        // Create canvas inside overlay
         const canvas = document.createElement('canvas');
         overlay.appendChild(canvas);
         canvas.width = overlay.offsetWidth;
@@ -293,11 +315,11 @@ document.addEventListener('DOMContentLoaded', () => {
         ctx.font = fontSize + "px monospace";
 
         function draw() {
-          // Fade the canvas slightly to create trail effect
-          ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
+          // VERY transparent background so card content is visible
+          ctx.fillStyle = 'rgba(0, 0, 0, 0.03)'; 
           ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-          ctx.fillStyle = '#0F0';
+          ctx.fillStyle = 'rgba(0, 255, 0, 0.2)'; // slightly transparent green
           for (let i = 0; i < drops.length; i++) {
             const text = letters.charAt(Math.floor(Math.random() * letters.length));
             ctx.fillText(text, i * fontSize, drops[i] * fontSize);
@@ -305,7 +327,6 @@ document.addEventListener('DOMContentLoaded', () => {
             if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
               drops[i] = 0;
             }
-
             drops[i]++;
           }
         }
@@ -317,7 +338,18 @@ document.addEventListener('DOMContentLoaded', () => {
           card.classList.remove('matrix-active');
           overlay.innerHTML = ''; // remove canvas
         }, 2500);
-      });
+      }
+
+      const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            runMatrixEffect();
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.5 });
+
+      observer.observe(card);
     }
   });
 });
