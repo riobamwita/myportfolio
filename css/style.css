@@ -427,12 +427,23 @@ img {
     background: #4d4444;
 }
 
-.testimonial-card img {
-    width: 120px; /* bigger */
-    height: 120px; /* bigger */
-    object-fit: cover;
+.testimonial-card .img-wrapper {
+    width: 120px;
+    height: 120px;
     border-radius: 50%;
-    border: 3px solid transparent;
+    overflow: hidden; /* ensures image stays round */
+    flex-shrink: 0;
+}
+
+.testimonial-card .img-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block; /* removes tiny gaps */
+}
+
+.testimonial-text {
+    flex: 1;
 }
 
 .testimonial-text h3 {
@@ -495,10 +506,12 @@ img {
         text-align: center;
         padding: 1.5rem;
     }
+    .testimonial-card .img-wrapper {
+        margin-bottom: 15px;
+    }
     .testimonial-card img {
         width: 100px;
         height: 100px;
-        margin-bottom: 10px;
     }
 }
 
