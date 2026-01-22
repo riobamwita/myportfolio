@@ -55,6 +55,9 @@
     </div>
 </div>
 
+<!-- Toast Message -->
+<div id="toast" class="toast"></div>
+
 <!-- Footer -->
 <footer>
     <p>&copy; 2025 Rioba Mwita | All rights reserved</p>
@@ -69,11 +72,21 @@ function closeTipModal() {
     document.getElementById("tipModal").style.display = "none";
 }
 
+function showToast(message) {
+    const toast = document.getElementById("toast");
+    toast.textContent = message;
+    toast.classList.add("show");
+
+    setTimeout(() => {
+        toast.classList.remove("show");
+    }, 3000);
+}
+
 function sendTip() {
     const phone = document.getElementById("mpesaPhone").value;
 
     if (!phone.match(/^(07|01)\d{8}$/)) {
-        alert("Enter a valid Safaricom number");
+        showToast("Enter a valid Safaricom number");
         return;
     }
 
@@ -83,8 +96,8 @@ function sendTip() {
         body: JSON.stringify({ phone })
     })
     .then(res => res.json())
-    .then(data => alert("Check your phone to complete the tip"))
-    .catch(() => alert("Something went wrong. Try again."));
+    .then(() => showToast("Check your phone to complete the tip"))
+    .catch(() => showToast("Something went wrong. Try again."));
 }
 </script>
 
