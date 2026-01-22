@@ -816,3 +816,25 @@ footer {
 .services {
     padding-top: 20px; /* reduce top padding if needed */
 }
+/* Input default and focus styles */
+.services-order input, 
+.services-order select, 
+.services-order textarea {
+    padding: 10px;
+    border-radius: 6px;
+    border: 2px solid #1f1f1f; /* default border */
+    font-size: 14px;
+    background: #1f1f1f;
+    color: #f1f1f1;
+    transition: border-color 0.3s;
+}
+
+/* Red border when invalid */
+input.invalid {
+    border-color: #e53935 !important; /* red */
+}
+
+/* Green border when valid */
+input.valid {
+    border-color: #66bb6a !important; /* green */
+}
