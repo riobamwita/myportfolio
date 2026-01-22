@@ -966,19 +966,25 @@ input.valid {
 /* Center number + title on portfolio cards */
 @media (max-width: 600px) {
     .portfolio-item {
-        text-align: center; /* center everything */
-        padding-top: 30px;
+        padding-top: 30px; /* top spacing */
     }
 
+    /* Center number circle */
     .portfolio-number {
-        display: flex;               /* flex to center number inside */
+        display: flex;               /* center number inside circle */
         align-items: center;         /* vertical center */
         justify-content: center;     /* horizontal center */
         margin: 0 auto 10px auto;    /* center circle above title */
     }
 
+    /* Center the title below the number */
     .portfolio-item h2 {
         margin: 0 0 15px 0;
-        text-align: center;          /* center title */
+        text-align: center;
+    }
+
+    /* Paragraphs remain justified */
+    .portfolio-item p {
+        text-align: justify;
     }
 }
