@@ -892,3 +892,25 @@ input.valid {
     transition: opacity 0.3s ease;
     z-index: 9999;
 }
+#backToTop {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  border: none;
+  background: #058585;
+  color: #fff;
+  font-size: 20px;
+  cursor: pointer;
+  display: none;
+  z-index: 999;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+#backToTop:hover {
+  transform: translateY(-3px);
+  opacity: 0.9;
+}
