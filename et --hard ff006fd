@@ -1,0 +1,73 @@
+[33mf3e221a[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m all changes
+[33md8acab9[m all changes
+[33m70b2838[m all changes
+[33mff006fd[m all changes
+[33m8a63d51[m changes
+[33mac508c6[m changes
+[33ma6de5c0[m my changes
+[33m9edb6d4[m my changes
+[33m2222ab7[m my changes
+[33me815305[m changes
+[33m552d6d1[m changes
+[33m3418cfc[m changes
+[33m318db9e[m changes
+[33m87eca22[m changes
+[33maa58f50[m changes
+[33m7cae5e4[m my changes
+[33mba54686[m my changes
+[33mea53a02[m my changes
+[33m2cb80b4[m my changes
+[33mc58bd4e[m my changes
+[33mf86424c[m my changes
+[33m33d55f0[m my changes
+[33m415c8be[m my changes
+[33m2e0c03f[m my changes
+[33m4eb9eb2[m my changes
+[33mcb29a1d[m my changes
+[33m8204d05[m my changes
+[33mef687e1[m my changes
+[33maff672d[m my changes
+[33ma842eb3[m my changes
+[33mc3c4fac[m my changes
+[33m0ed2f19[m my changes
+[33m9ab3572[m my changes
+[33m59cbfd8[m My changes
+[33ma50fe49[m My changes
+[33mdb6aae6[m My changes
+[33mf05ca04[m Update pages and add favicon
+[33mb9a0a00[m auto-update
+[33mff4ac56[m Update portfolio and style.css with new title colors
+[33m46eac55[m Update about.html and style.css
+[33m92d53a8[m Update contact.html and style.css with testimonial image layout
+[33me6ae9ea[m Updated fonts and images for better readability and responsive scaling
+[33m2427b98[m Added Matrix effect overlay and updated portfolio
+[33me1cb2e7[m Refine road accident distribution description using 2016 Kenya traffic data
+[33m615aaf1[m Update distribution map
+[33m4c6221f[m Align road accident hotspot section and add distribution & kernel maps
+[33m33a1fbd[m Update styles and portfolio page
+[33md9839fc[m Center CV button and adjust styling
+[33m3d27abe[m Add CV view button and update portfolio styling
+[33m775c7d7[m Update portfolio and add CV PDF
+[33mdab00e4[m Update portfolio.html with recent changes
+[33m4c63e41[m Update portfolio page
+[33m80791f2[m Fix testimonial image rounding
+[33m3347360[m Update portfolio styles
+[33m4b3588e[m Update portfolio content
+[33m4b40942[m Update portfolio and replace Kisumu image
+[33m77f40c8[m Fix Vercel routing conflict
+[33mfacc9e7[m Updated portfolio and about/contact pages; improved CSS and GIS project images
+[33m2c76e0e[m Update portfolio assets, styles, and scripts
+[33m1fb3afe[m Update portfolio page content and image references
+[33mc34d362[m Fix image filename case and ensure air pollution map displays correctly
+[33mec9db10[m Add Nakuru Air Pollution Exposure map and description to portfolio
+[33mf3d9684[m Update styles, portfolio page, and add LST image
+[33m2ded961[m Fix Vercel config to serve static HTML files
+[33m1787042[m Update vercel.json for proper HTML file serving and clean URLs
+[33mde86d0c[m Add Google verification file
+[33ma2937ff[m Remove old Google verification HTML file
+[33mab578b5[m Add Google site verification meta tag
+[33m2208126[m Add Google Search Console verification HTML
+[33me75023b[m Add sitemap.xml for SEO
+[33m3591040[m Update HTML, CSS, JS and add vercel.json for clean URLs
+[33m45c1ff8[m Update styles and portfolio page
+[33m665ad66[m Updated About page references and Portfolio layout
