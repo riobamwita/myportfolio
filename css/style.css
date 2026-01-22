@@ -980,3 +980,25 @@ input.valid {
         text-align: center;  /* center title */
     }
 }
+/* Portfolio card number stays on left, number centered in circle, title centered */
+.portfolio-item {
+    position: relative;
+    text-align: center; /* centers the h2 title */
+    padding-left: 90px; /* space for number circle on the left */
+}
+
+.portfolio-number {
+    position: absolute;
+    top: 20px;           /* adjust vertical position as needed */
+    left: 20px;          /* distance from left edge of card */
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    display: flex;       /* for centering number */
+    align-items: center; /* vertical centering */
+    justify-content: center; /* horizontal centering */
+    color: #fff;
+    font-weight: 700;
+    font-size: 1.8em;
+    opacity: 0.85;
+}
