@@ -988,3 +988,13 @@ input.valid {
         text-align: left;
     }
 }
+/* Center CV button */
+.cv-button {
+    display: inline-block; /* ensures it’s treated as inline for centering */
+    margin: 0 auto;        /* centers horizontally */
+}
+
+/* If parent container is not block-level, force it */
+.services-order {
+    text-align: center;    /* center all inline/inline-block children like buttons */
+}
