@@ -3,103 +3,292 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Support | Rioba Mwita</title>
-
-<!-- SEO Meta Tags -->
-<meta name="description" content="Support Rioba Mwita and help keep building practical, reliable solutions. Send tips via M-Pesa.">
-<meta name="robots" content="index, follow">
+<title>Contact | Rioba Mwita</title>
+<link rel="icon" href="assets/images/favicon.png" type="image/png">
 
 <!-- Google Fonts -->
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Poppins:wght@500;600&display=swap" rel="stylesheet">
 
 <!-- Main CSS -->
-<link rel="icon" type="image/png" href="images/favicon.png">
 <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-<!-- Header / Navigation -->
+<!-- ================= HEADER ================= -->
 <header>
-    <nav>
-        <ul>
-            <li><a href="/">Home</a></li>
-            <li><a href="/about">About</a></li>
-            <li><a href="/portfolio">Portfolio</a></li>
-            <li><a href="/services.html">Order</a></li>
-            <li><a href="/contact" class="active">Support</a></li>
-        </ul>
-    </nav>
+  <nav class="navbar">
+    <ul class="nav-links">
+      <li><a href="/">Home</a></li>
+      <li><a href="/about">About</a></li>
+      <li><a href="/portfolio">Portfolio</a></li>
+      <li><a href="#contact" class="active">Contact</a></li>
+    </ul>
+  </nav>
 </header>
 
-<!-- Support Section -->
-<section class="tip-box">
-    <img src="images/tip.png" alt="Support my work" class="tip-icon">
-
-    <p class="tip-text">
-        If you like what you see here, you can support the time and tools behind my work. Tips help me keep building practical, reliable solutions.
-    </p>
-
+<!-- ================= HERO / TIP ================= -->
+<section class="hero">
+  <div class="hero-content">
+    <h1>Support My Work</h1>
+    <p>Help me keep building practical, reliable solutions. Send tips via M-Pesa or grab some merch.</p>
     <button class="tip-btn" onclick="openTipModal()">Tip via M-Pesa</button>
+  </div>
+  <img src="assets/images/tip-icon.png" alt="Support Rioba Mwita" class="hero-img">
 </section>
 
-<!-- Tip Modal -->
+<!-- ================= TIP & MERCH MODAL ================= -->
 <div id="tipModal" class="tip-modal">
-    <div class="tip-modal-content">
-        <span class="close-tip" onclick="closeTipModal()">&times;</span>
-        <h3>Support My Work</h3>
-
-        <input type="text" id="mpesaPhone" placeholder="07XXXXXXXX or 01XXXXXXXX">
-        <button onclick="sendTip()">Send Tip</button>
-
-        <p class="tip-note">You’ll receive an M-Pesa prompt on your phone.</p>
-    </div>
+  <div class="tip-modal-content">
+    <span class="close-tip" onclick="closeTipModal()">&times;</span>
+    <h3 id="modalTitle">Support My Work</h3>
+    <input type="text" id="mpesaPhone" placeholder="07XXXXXXXX or 01XXXXXXXX">
+    <button id="modalActionButton" onclick="sendTip()">Send Tip</button>
+    <p class="tip-note" id="modalNote">You’ll receive an M-Pesa prompt.</p>
+  </div>
 </div>
 
-<!-- Toast Message -->
-<div id="toast" class="toast"></div>
+<!-- ================= MERCH SECTION ================= -->
+<section class="merch" id="merch">
+  <h2>Merchandise</h2>
+  <p>Available color: Black | Delivery anywhere</p>
+  <div class="merch-grid">
+    <div class="merch-card">
+      <img src="assets/images/merch1.jpg" alt="Merch 1">
+      <p>T-Shirt #1</p>
+      <p class="price">KSH 1,200</p>
+      <button onclick="showMerchNotice()">Buy Now</button>
+    </div>
+    <div class="merch-card">
+      <img src="assets/images/merch2.jpg" alt="Merch 2">
+      <p>T-Shirt #2</p>
+      <p class="price">KSH 1,200</p>
+      <button onclick="showMerchNotice()">Buy Now</button>
+    </div>
+    <div class="merch-card">
+      <img src="assets/images/merch3.jpg" alt="Merch 3">
+      <p>T-Shirt #3</p>
+      <p class="price">KSH 1,200</p>
+      <button onclick="showMerchNotice()">Buy Now</button>
+    </div>
+    <div class="merch-card">
+      <img src="assets/images/merch4.jpg" alt="Merch 4">
+      <p>T-Shirt #4</p>
+      <p class="price">KSH 1,200</p>
+      <button onclick="showMerchNotice()">Buy Now</button>
+    </div>
+    <div class="merch-card">
+      <img src="assets/images/merch5.jpg" alt="Merch 5">
+      <p>T-Shirt #5</p>
+      <p class="price">KSH 1,200</p>
+      <button onclick="showMerchNotice()">Buy Now</button>
+    </div>
+        <div class="merch-card">
+      <img src="assets/images/merch6.jpg" alt="Merch 6">
+      <p>T-Shirt #6</p>
+      <p class="price">KSH 1,200</p>
+      <button onclick="showMerchNotice()">Buy Now</button>
+    </div>
+  </div>
+</section>
 
-<!-- Footer -->
+<!-- ================= SERVICES ================= -->
+<section class="services" id="services">
+  <h2>Services & Pricing</h2>
+  <div class="services-grid">
+    <div class="service-card">
+      <h3>Study Area/ Single Maps</h3>
+      <p>Single GIS thematic map</p>
+      <p class="price">From KSH 1,200</p>
+    </div>
+    <div class="service-card">
+      <h3>Multiple GIS Maps</h3>
+      <p>Multiple maps for a single project</p>
+      <p class="price">From KSH 5,100</p>
+    </div>
+    <div class="service-card">
+      <h3>Shapefiles/Satellite Imagery</h3>
+      <p>Raw GIS data and imagery</p>
+      <p class="price">From KSH 500</p>
+    </div>
+    <div class="service-card">
+      <h3>Full Project Write-Up</h3>
+      <p>Comprehensive reports including field data</p>
+      <p class="price">From KSH 11,000</p>
+    </div>
+    <div class="service-card">
+      <h3>Field Data Collection</h3>
+      <p>All land survey services</p>
+      <p class="price">From KSH 8,000</p>
+    </div>
+    <div class="service-card">
+      <h3>Floor Plans</h3>
+      <p>2-bedroom plan, price increases per bedroom</p>
+      <p class="price">From KSH 8,000</p>
+    </div>
+    <div class="service-card">
+      <h3>Websites</h3>
+      <p>Personal: KSH 10,000 | Private Firm: KSH 35,000 | Corporate: KSH 60,000</p>
+      <p class="price">Contact for details</p>
+    </div>
+    <div class="service-card">
+      <h3>Parcel Rims</h3>
+      <p>Parcel Sheets</p>
+      <p class="price">KSH 2,000</p>
+    </div>
+    <div class="service-card">
+      <h3>Web Map / Dashboard</h3>
+      <p>Simple & complex GIS monitoring dashboards</p>
+      <p class="price">Contact for quote</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CONTACT / ENQUIRY ================= -->
+<section class="contact" id="contact">
+  <h2>Reach Me</h2>
+  <p>Send a question or request a service directly</p>
+  <form id="serviceOrderForm">
+    <input type="text" id="name" placeholder="Full Name" required>
+    <input type="email" id="email" placeholder="Email" required>
+    <input type="text" id="phone" placeholder="07XXXXXXXX or 01XXXXXXXX">
+    <select id="service">
+      <option value="">-Select Service-</option>
+      <option value="GIS Mapping">GIS Mapping</option>
+      <option value="Environmental Research">Research Assistance</option>
+      <option value="Web Development">Web Development</option>
+      <option value="Land Surveying">Land Surveying</option>
+      <option value="Merch Purchase">Merch Purchase</option>
+      <option value="Other">Other</option>
+    </select>
+    <textarea id="details" rows="4" placeholder="Project Details / Question..." required></textarea>
+    <div class="enquiry-checkbox">
+      <input type="checkbox" id="justQuestion">
+      <label for="justQuestion">This is an enquiry</label>
+    </div>
+    <button type="submit">Submit</button>
+  </form>
+<div class="contact-socials-location">
+  <div class="contact-socials">
+    <a href="mailto:riobaramadhan@gmail.com" target="_blank">
+      <img src="assets/images/gmail-icon.png" alt="Email">
+      <span>Email</span>
+    </a>
+    <a href="https://wa.me/254729709807" target="_blank">
+      <img src="assets/images/whatsapp-icon.png" alt="WhatsApp">
+      <span>WhatsApp</span>
+    </a>
+    <a href="https://www.linkedin.com/in/rioba-mwita-026019233" target="_blank">
+      <img src="assets/images/linkedin-icon.png" alt="LinkedIn">
+      <span>LinkedIn</span>
+    </a>
+  </div>
+  <div class="contact-location">
+    <img src="assets/images/location-icon.png" alt="Location">
+    <span>Muthaiga, Nairobi</span>
+  </div>
+</div>
+
+
+<!-- ================= FOOTER ================= -->
 <footer>
-    <p>&copy; 2025 Rioba Mwita | All rights reserved</p>
+  <p>&copy; 2025 Rioba Mwita | All rights reserved</p>
 </footer>
 
+<!-- ================= JS ================= -->
 <script>
-function openTipModal() {
-    document.getElementById("tipModal").style.display = "flex";
+// ================= MODAL FUNCTIONS =================
+
+// Open modal for Tip or Merch
+function openTipModal(isMerch = false) {
+  const modal = document.getElementById("tipModal");
+  const title = document.getElementById("modalTitle");
+  const actionBtn = document.getElementById("modalActionButton");
+  const phoneInput = document.getElementById("mpesaPhone");
+  const note = document.getElementById("modalNote");
+
+  if (isMerch) {
+    title.textContent = "Merch Purchase Notice";
+    actionBtn.textContent = "Proceed"; // optional button text
+    actionBtn.style.display = "block"; // show button
+    phoneInput.style.display = "block"; // show phone input
+    note.textContent = "Enter your Safaricom number to receive prompt after filling the contact form.";
+  } else {
+    title.textContent = "Support My Work";
+    actionBtn.textContent = "Send Tip";
+    actionBtn.style.display = "block";
+    phoneInput.style.display = "block";
+    note.textContent = "You’ll receive an M-Pesa prompt.";
+  }
+
+  modal.style.display = "flex";
 }
 
+// Close modal
 function closeTipModal() {
-    document.getElementById("tipModal").style.display = "none";
+  document.getElementById("tipModal").style.display = "none";
 }
 
-function showToast(message) {
-    const toast = document.getElementById("toast");
-    toast.textContent = message;
-    toast.classList.add("show");
+// ================= BUY BUTTON FUNCTION =================
 
-    setTimeout(() => {
-        toast.classList.remove("show");
-    }, 3000);
+// Called when any Buy button is clicked
+function showMerchNotice() {
+  openTipModal(true);
 }
+
+// ================= TOAST FUNCTION =================
+
+function showToast(msg) {
+  let toast = document.createElement('div');
+  toast.textContent = msg;
+  toast.className = 'toast';
+  document.body.appendChild(toast);
+  setTimeout(() => toast.remove(), 3000);
+}
+
+// ================= SEND TIP / MERCH =================
 
 function sendTip() {
-    const phone = document.getElementById("mpesaPhone").value;
+  const phone = document.getElementById("mpesaPhone").value.trim();
 
-    if (!phone.match(/^(07|01)\d{8}$/)) {
-        showToast("Enter a valid Safaricom number");
-        return;
-    }
+  if (!phone.match(/^(07|01)\d{8}$/)) {
+    showToast("Enter a valid Safaricom number");
+    return;
+  }
 
-    fetch("/stkpush", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ phone })
-    })
-    .then(res => res.json())
-    .then(() => showToast("Check your phone to complete the tip"))
-    .catch(() => showToast("Something went wrong. Try again."));
+  // Call your backend endpoint for STK push
+  fetch("/stkpush", {
+    method: 'POST',
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ phone })
+  })
+  .then(() => showToast("Check your phone to complete the payment"))
+  .catch(() => showToast("Something went wrong"));
 }
-</script>
 
+// ================= CONTACT FORM =================
+
+document.getElementById('serviceOrderForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+
+  const name = document.getElementById('name').value.trim();
+  const email = document.getElementById('email').value.trim();
+  const phone = document.getElementById('phone').value.trim();
+  const service = document.getElementById('service').value || 'General Enquiry';
+  const details = document.getElementById('details').value.trim();
+  const justQuestion = document.getElementById('justQuestion').checked;
+  const typeText = justQuestion ? 'Enquiry' : 'Service Request';
+
+  const message = `Hi Rioba, I have a ${typeText}.\nName: ${name}\nEmail: ${email}\nPhone: ${phone || 'N/A'}\nService/Question: ${service}\nDetails: ${details}`;
+
+  if (phone.match(/^(07|01)\d{8}$/)) {
+    window.open(`https://wa.me/254729709807?text=${encodeURIComponent(message)}`, '_blank');
+  } else {
+    window.location.href = `mailto:riobaramadhan@gmail.com?subject=${encodeURIComponent(typeText)}&body=${encodeURIComponent(message)}`;
+  }
+
+  this.reset();
+});
+
+</script>
 </body>
 </html>
