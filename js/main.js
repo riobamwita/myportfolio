@@ -1,7 +1,6 @@
 const roles = [
   "land surveyor",
   "GIS specialist",
-  "geospatial engineer",
   "research assistant",
   "web developer",
   "friendly networker",
