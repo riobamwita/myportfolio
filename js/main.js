@@ -1,9 +1,10 @@
 const roles = [
   "land surveyor",
-  "GIS analyst",
+  "GIS specialist",
   "geospatial engineer",
   "research assistant",
-  "web map developer"
+  "web developer",
+  "friendly networker",
 ];
 
 const typingEl = document.getElementById("typingText");
