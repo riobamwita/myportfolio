@@ -82,3 +82,10 @@ function openSpatialModellingModal() {
 function closeSpatialModellingModal() {
   document.getElementById('spatialModellingModal').style.display = 'none';
 }
+function openWebDevModal() {
+  document.getElementById("webDevModal").style.display = "flex";
+}
+
+function closeWebDevModal() {
+  document.getElementById("webDevModal").style.display = "none";
+}

@@ -48,21 +48,21 @@
   </div>
 </div>
 
-  <!-- GIS -->
-  <div class="project-card reverse">
-    <div class="project-image gis-map">
-      <img src="assets/images/heat-island-map.png" alt="GIS Mapping">
-    </div>
-    <div class="project-text">
-      <span>CORE GIS</span>
-      <h2>GIS & Spatial Analysis</h2>
-      <p>
-        Advanced GIS mapping, remote sensing, spatial modeling and environmental analysis.
-        Applications in land use planning, environmental management, disaster risk assessment,
-        hydrology, climate analysis, urban planning and decision-support systems.
-      </p>
-    </div>
+<!-- LANDSCAPE & FLOOR PLANS -->
+<div class="project-card reverse">
+  <div class="project-image gis-map">
+    <img src="assets/images/landscape.jpg" alt="Landscape & Floor Plans">
   </div>
+  <div class="project-text">
+    <span>DESIGN & PLANNING</span>
+    <h2>Landscape & Floor Plans</h2>
+    <p>
+      Professional landscape design and architectural floor planning services leveraging spatial analysis and CAD tools. 
+      Services include site layout optimization, landscape visualization, building floor plans, and integration with environmental and topographic data. 
+      Ideal for residential, commercial, and public spaces to ensure functional, aesthetic, and sustainable designs.
+    </p>
+  </div>
+</div>
 
 <!-- SPATIAL MODELLING -->
 <div class="project-card tappable" onclick="openSpatialModellingModal()">
@@ -75,7 +75,7 @@
     </p>
   </div>
   <div class="project-image gis-map">
-    <img src="assets/images/air-exposure-map.png" alt="Spatial Modelling Example">
+    <img src="assets/images/spatialmodelling.jpg" alt="Spatial Modelling Example">
   </div>
 </div>
 
@@ -141,21 +141,22 @@
   </div>
 </div>
 
-  <!-- WEB DEV -->
-  <div class="project-card reverse">
-    <div class="project-image">
-      <img src="assets/images/web-dev.jpg" alt="Web Development">
-    </div>
-    <div class="project-text">
-      <span>DIGITAL SYSTEMS</span>
-      <h2>Web & App Development</h2>
-      <p>
-        Design and development of modern web platforms, dashboards, GIS web apps,
-        data-driven systems, secure databases, interactive platforms and digital services
-        for institutions, firms and research organizations.
-      </p>
-    </div>
+<!-- WEB DEV -->
+<div class="project-card reverse tappable" onclick="openWebDevModal()">
+  <div class="project-image">
+    <img src="assets/images/web-dev.jpg" alt="Web Development">
   </div>
+  <div class="project-text">
+    <span>DIGITAL SYSTEMS</span>
+    <h2>Web & App Development</h2>
+    <p>
+      Design and development of modern web platforms, dashboards, GIS web apps,
+      data-driven systems, secure databases, interactive platforms and digital services
+      for institutions, firms and research organizations.
+    </p>
+  </div>
+</div>
+
 
   <!-- ENVIRONMENT -->
   <div class="project-card">
@@ -381,7 +382,28 @@
     <button class="modal-close-btn" onclick="closeSpatialModellingModal()">Close</button>
   </div>
 </div>
-
+<!-- WEB DEV MODAL -->
+<div id="webDevModal" class="modal-overlay">
+  <div class="modal-content" style="overflow-y:auto; max-height:90vh; 
+                                   position:relative; color:white; 
+                                   background: url('assets/images/developer.png') center center no-repeat; 
+                                   background-size: contain;">
+    <div style="position:relative; z-index:5; padding:1rem; background: rgba(0,0,0,0.6); border-radius:8px;">
+      <h2>Web Development (Freelance)</h2>
+      <p>
+        From October 2025 – Present, I designed and developed a web-based survey data portal for Homeland Surveyors. 
+        The portal supports secure storage, retrieval, and management of survey maps, coordinate data, and project files, 
+        streamlining workflow for both field and office teams.
+      </p>
+      <p>
+        Between December 2025 and January 2026, I developed a logistics management portal for Chandaria Industries Ltd. 
+        This platform facilitates tracking, coordination, and management of logistics operations across warehouses, 
+        transport teams, and management staff, improving operational efficiency.
+      </p>
+      <button class="modal-close-btn" onclick="closeWebDevModal()">Close</button>
+    </div>
+  </div>
+</div>
 <script src="js/main.js"></script>
 
 </body>
