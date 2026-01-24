@@ -1098,3 +1098,48 @@ footer {
     margin-right: auto;
   }
 }
+/* =====================
+   TOAST NOTIFICATION
+===================== */
+.toast {
+  position: fixed;
+  bottom: 28px;
+  left: 50%;
+  transform: translateX(-50%) translateY(10px);
+  background: rgba(20, 5, 40, 0.95);
+  color: #fff;
+  padding: 12px 20px;
+  border-radius: 10px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  z-index: 3000;
+
+  border: 1px solid var(--card-border);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+
+  opacity: 0;
+  animation: toastIn 0.35s ease forwards,
+             toastOut 0.35s ease forwards 2.8s;
+}
+
+.toast.error {
+  border-color: #ff4d4d;
+}
+
+.toast.success {
+  border-color: #28a745;
+}
+
+@keyframes toastIn {
+  to {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+}
+
+@keyframes toastOut {
+  to {
+    opacity: 0;
+    transform: translateX(-50%) translateY(10px);
+  }
+}

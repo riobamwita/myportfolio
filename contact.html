@@ -247,12 +247,16 @@ function showMerchNotice() {
 
 // ================= TOAST FUNCTION =================
 
-function showToast(msg) {
-  let toast = document.createElement('div');
-  toast.textContent = msg;
-  toast.className = 'toast';
+function showToast(message, type = "error") {
+  const toast = document.createElement("div");
+  toast.className = `toast ${type}`;
+  toast.textContent = message;
+
   document.body.appendChild(toast);
-  setTimeout(() => toast.remove(), 3000);
+
+  setTimeout(() => {
+    toast.remove();
+  }, 3200);
 }
 
 // ================= SEND TIP / MERCH =================
@@ -260,19 +264,19 @@ function showToast(msg) {
 function sendTip() {
   const phone = document.getElementById("mpesaPhone").value.trim();
 
-  if (!phone.match(/^(07|01)\d{8}$/)) {
-    showToast("Enter a valid Safaricom number");
+  // Validate Safaricom number
+  if (!/^(07|01)\d{8}$/.test(phone)) {
+    showToast("Enter a valid Safaricom number", "error");
     return;
   }
 
-  // Call your backend endpoint for STK push
-  fetch("/stkpush", {
-    method: 'POST',
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ phone })
-  })
-  .then(() => showToast("Check your phone to complete the payment"))
-  .catch(() => showToast("Something went wrong"));
+  // Simulate backend not connected
+  showToast("Payment failed. M-Pesa service not connected.", "error");
+
+  // OPTIONAL: close modal after failure
+  setTimeout(() => {
+    closeTipModal();
+  }, 1500);
 }
 
 // ================= CONTACT FORM =================
