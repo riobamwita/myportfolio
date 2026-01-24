@@ -33,3 +33,5 @@ function typeLoop() {
 }
 
 typeLoop();
+// Simulate backend not connected
+showToast("Payment failed. M-Pesa service not connected.", "error");
