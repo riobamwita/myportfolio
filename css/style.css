@@ -1346,3 +1346,15 @@ body {
     font-size: 0.95rem;
   }
 }
+.side-by-side-images {
+  display: flex;
+  flex-direction: column; /* stack vertically */
+  gap: 20px;              /* space between images */
+  align-items: center;    /* optional: center images */
+}
+
+.image-box img {
+  width: 100%;            /* keeps images responsive */
+  max-width: 600px;       /* optional max width */
+  border-radius: 12px;
+}
