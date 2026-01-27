@@ -1239,3 +1239,31 @@ img {
 body {
   scroll-behavior: smooth;
 }
+/* =====================
+   MOBILE: 2-COLUMN GRIDS
+===================== */
+@media (max-width: 600px) {
+  .merch-grid,
+  .services-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+  }
+
+  .merch-card,
+  .service-card {
+    padding: 12px;
+  }
+
+  .service-card h3 {
+    font-size: 1.05rem;
+  }
+
+  .service-card p,
+  .merch-card p {
+    font-size: 0.85rem;
+  }
+
+  .merch-card img {
+    border-radius: 10px;
+  }
+}
