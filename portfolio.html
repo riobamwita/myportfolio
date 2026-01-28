@@ -291,8 +291,22 @@
       generate actionable insights for environmental planning, conservation, and land
       management.
     </p>
+    <h3>LiDAR Analysis</h3>
+    <div class="image-box">
+      <img src="assets/images/lidar.png" alt="LiDAR Visualization" loading="lazy">
+      <p style="text-align: center;">LiDAR-based Elevation Structure</p>
+    </div>
+<p>
+  LiDAR (Light Detection and Ranging) provides high-resolution 3D information
+  about terrain and built/vegetation structures. In this example of Logan
+  International Airport, LiDAR captures detailed elevation and structural
+  data of buildings, and surrounding topographic features. Such data can
+  complement satellite imagery by accurately mapping structures and land
+  cover, helping to detect subtle changes in urban development and
+  infrastructure.
+</p>
 
-    <h3>Forest Cover Change in Nyeri County</h3>
+    <h3>Change Detection</h3>
     <p>
       Using satellite imagery from 2017 and 2025, we can observe forest cover dynamics
       over time. The side-by-side comparison highlights areas of deforestation and
@@ -370,20 +384,6 @@
       Spatial modelling allows integration of emission sources, land use, population distribution, and meteorological data to assess exposure, guide public health interventions, and support planning decisions.
     </p>
     <img src="assets/images/air-exposure-map.png" alt="Air Pollution Exposure Map" style="width:100%; border:1px solid #ccc; margin-top:1rem;" loading="lazy">
-    <!-- 3D Spatial Modelling Section -->
-<h3>3D Modelling</h3>
-<p>
-  This is a simple 3D representation of terrain to give a visual sense of elevation and spatial arrangement. 
-  While this is an example, I am able to create <strong>custom 3D GIS models on request</strong> to suit any project or area of interest.
-</p>
-     <iframe 
-  src="assets/maps/mount_kenya_3D.html"
-  style="width:100%; height:300px; border:1px solid #ccc; margin-top:1rem;"
-  loading="lazy">
-</iframe>
-<p>
-  The 3D image may take a few seconds to load depending on your internet speed. You can interact with it using the vertical and horizontal scroll bar to get it into full view and click the image to rotate it.
-</p>
 
     <h3>Urban Heat Island</h3>
     <p>
@@ -393,6 +393,47 @@
       This type of spatial modelling is valuable for urban planning, environmental management, and identifying zones vulnerable to climate-related risks.
     </p>
     <img src="assets/images/heat-island-map.png" alt="Urban Heat Map – Kisumu City" style="width:100%; border:1px solid #ccc; margin-top:1rem;" loading="lazy">
+<!-- 3D Spatial Modelling Section -->
+<h3>3D Modelling</h3>
+<p>
+  This is a simple 3D representation of terrain to give a visual sense of elevation and spatial arrangement. 
+  While this is an example, I am able to create <strong>custom 3D GIS models on request</strong> to suit any project or area of interest.
+</p>
+
+<!-- 3D Placeholder & iframe container -->
+<div id="threeDContainer" style="text-align:center; margin-bottom:1rem;">
+  <!-- Placeholder Image -->
+  <img 
+    id="threeDPlaceholder" 
+    src="assets/images/3d.png" 
+    alt="3D Model Preview" 
+    loading="lazy" 
+    style="cursor:pointer; border:2px solid var(--accent); border-radius:12px; max-width:100%; height:auto;"
+  >
+  <p style="margin-top:6px; color: var(--accent); font-weight:600;">
+    Tap the image to load the 3D model
+  </p>
+</div>
+
+<script>
+  const container = document.getElementById('threeDContainer');
+  const placeholder = document.getElementById('threeDPlaceholder');
+
+  placeholder.addEventListener('click', () => {
+    // Clear the container
+    container.innerHTML = '';
+
+    // Add the iframe
+    const iframe = document.createElement('iframe');
+    iframe.src = 'assets/maps/mount_kenya_3D.html';
+    iframe.style.width = '100%';
+    iframe.style.height = '400px';
+    iframe.style.border = '1px solid #ccc';
+    iframe.loading = 'lazy';
+
+    container.appendChild(iframe);
+  });
+</script>
 
     <p>
       Spatial modelling can be applied across environmental monitoring, urban growth studies, disaster risk assessment, and resource management. 
