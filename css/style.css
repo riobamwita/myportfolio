@@ -1420,3 +1420,13 @@ body {
   transform: translateY(-2px);
   box-shadow: 0 6px 15px rgba(0,0,0,0.3);
 }
+.portfolio-section h1 {
+  max-width: 900px;
+  margin: 0 auto 8px;
+  text-align: left;
+  font-family: "Cinzel", serif;
+  font-size: 2.4rem;
+  font-weight: 700;
+  letter-spacing: 0.6px;
+  color: var(--text-main);
+}
