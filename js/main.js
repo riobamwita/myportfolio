@@ -3,6 +3,7 @@ const roles = [
   "GIS specialist",
   "research assistant",
   "web developer",
+  "architectural designer",
   "friendly networker",
 ];
 
