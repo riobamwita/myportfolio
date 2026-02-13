@@ -257,16 +257,6 @@ footer {
   padding: 4px 20px 60px;
 }
 
-.about h1 {
-  max-width: 900px;
-  margin: 0 auto 8px;
-  font-family: "Cinzel", serif;
-  font-size: 2.4rem;
-  font-weight: 700;
-  letter-spacing: 0.6px;
-  color: var(--text-main);
-}
-
 /* MAIN ABOUT CARD */
 .about-content {
   max-width: 900px;
@@ -1420,6 +1410,18 @@ body {
   transform: translateY(-2px);
   box-shadow: 0 6px 15px rgba(0,0,0,0.3);
 }
+.portfolio-section h1 {
+  max-width: 900px;
+  margin: 0 auto 8px;
+  text-align: center;
+  font-family: "Cinzel", serif;
+  font-size: 2.4rem;
+  font-weight: 700;
+  letter-spacing: 0.6px;
+  color: var(--text-main);
+}
+/* Shared H1 style for About & Portfolio */
+.about h1,
 .portfolio-section h1 {
   max-width: 900px;
   margin: 0 auto 8px;
