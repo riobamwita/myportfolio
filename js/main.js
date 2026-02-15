@@ -11,11 +11,16 @@ const typingEl = document.getElementById("typingText");
 
 let roleIndex = 0;
 let charIndex = 0;
-let baseText = "I am a ";
 let deleting = false;
+
+function getArticle(word) {
+  return /^[aeiou]/i.test(word) ? "an" : "a";
+}
 
 function typeLoop() {
   const currentRole = roles[roleIndex];
+  const article = getArticle(currentRole);
+  const baseText = `I am ${article} `;
 
   if (!deleting) {
     typingEl.textContent = baseText + currentRole.slice(0, charIndex++);
@@ -30,10 +35,11 @@ function typeLoop() {
     }
   }
 
-  setTimeout(typeLoop, deleting ? 12.5 : 20);
+  setTimeout(typeLoop, deleting ? 12 : 20);
 }
 
 typeLoop();
+
 // Simulate backend not connected
 showToast("Payment failed. M-Pesa service not available.", "error");
 function openLandSurveyModal() {
