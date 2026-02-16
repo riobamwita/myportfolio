@@ -530,7 +530,7 @@
     const allCards = document.querySelectorAll('.project-card');
     allCards.forEach(card => {
       if (service === 'all' || card.dataset.service === service) {
-        card.style.display = 'flex'; // or 'block', depending on your layout
+        card.style.display = 'grid'; // or 'block', depending on your layout
       } else {
         card.style.display = 'none';
       }
