@@ -1459,3 +1459,8 @@ body.modal-open {
   position: fixed; /* Optional: prevents the page from shifting horizontally */
   width: 100%;
 }
+.portfolio-section {
+  min-height: 100vh; /* Ensures section fills the viewport */
+  display: flex;
+  flex-direction: column;
+}
