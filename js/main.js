@@ -124,3 +124,19 @@ function closeEnvironmentModal() {
   document.getElementById('environmentModal').style.display = 'none';
   document.body.style.overflow = "";  // Restore page scroll
 }
+const toggleTips = document.getElementById('toggleTips');
+const tipItems = document.querySelectorAll('#tipModal .tip-item'); // tip-item = elements you want to hide/show
+
+function updateTipVisibility() {
+  const limit = 3;
+  tipItems.forEach((item, index) => {
+    if (toggleTips.checked) {
+      item.style.display = index < limit ? 'block' : 'none';
+    } else {
+      item.style.display = 'block';
+    }
+  });
+}
+
+toggleTips.addEventListener('change', updateTipVisibility);
+updateTipVisibility(); // initialize on modal open

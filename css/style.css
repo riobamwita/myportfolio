@@ -1475,5 +1475,30 @@ body.modal-open {
   position: fixed; /* Optional: prevents the page from shifting horizontally */
   width: 100%;
 }
+/* Toggle wrapper inside tip modal */
+.tip-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 14px 0;
+  padding: 6px 12px;
+  background: rgba(255,255,255,0.03);
+  border-radius: 12px;
+  font-size: 1rem;
+  color: var(--text-soft);
+}
 
+/* Toggle label */
+.tip-toggle label {
+  cursor: pointer;
+  user-select: none;
+}
 
+/* Checkbox input */
+.tip-toggle input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+  accent-color: var(--accent);
+  cursor: pointer;
+  border-radius: 4px;
+}
