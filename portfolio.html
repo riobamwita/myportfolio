@@ -474,38 +474,50 @@
     <img src="assets/images/heat-island-map.png" alt="Urban Heat Map – Kisumu City" style="width:100%; border:1px solid #ccc; margin-top:1rem;" loading="lazy">
 <!-- 3D Spatial Modelling Section -->
 <h3>3D Modelling</h3>
+    <p>
+      In addition to 2D spatial analyses, I also create interactive 3D models to visualize terrain, structures, and spatial relationships in a more immersive way. 
+      The example below is a 3D model of Mount Kenya, which can be explored interactively to understand topography, elevation, and spatial context. 
+      3D modelling enhances spatial understanding and supports applications in environmental analysis, urban planning, and geospatial storytelling.
+    </p>
 <!-- 3D Placeholder & iframe container -->
-<div id="threeDContainer" style="text-align:center; margin-bottom:1rem;">
-  <!-- Instruction on top -->
-  <p style="margin-bottom:6px; color: var(--accent); font-weight:600;">
-    Tap the image to load the 3D model
-  </p>
+<div id="threeDContainer" style="position:relative; display:inline-block; text-align:center; margin-bottom:1rem;">
 
   <!-- Placeholder Image -->
   <img 
     id="threeDPlaceholder" 
     src="assets/images/3d.png" 
     alt="3D Model Preview" 
-    loading="lazy" 
-    style="cursor:pointer; border:2px solid var(--accent); border-radius:12px; max-width:100%; height:auto;"
+    loading="lazy"
+    style="display:block; border:2px solid var(--accent); border-radius:12px; max-width:100%; height:auto;"
   >
+
+  <!-- Tap Button Overlay -->
+  <button 
+    id="activate3DButton"
+    style="position:absolute; top:50%; left:50%; transform:translate(-50%, -50%);
+           background: rgba(0,0,0,0.6); color:white; border:none; padding:10px 20px; 
+           border-radius:8px; cursor:pointer; font-size:1rem;">
+    Tap to Interact
+  </button>
+
 </div>
 
 <script>
   const container = document.getElementById('threeDContainer');
   const placeholder = document.getElementById('threeDPlaceholder');
+  const button = document.getElementById('activate3DButton');
 
-  placeholder.addEventListener('click', () => {
-    // Clear the container
+  button.addEventListener('click', () => {
+    // Clear container content
     container.innerHTML = '';
 
-    // Add the iframe
+    // Create iframe
     const iframe = document.createElement('iframe');
     iframe.src = 'assets/maps/mount_kenya_3D.html';
-    iframe.style.width = '100%';
+    iframe.style.width = '640px';
     iframe.style.height = '400px';
     iframe.style.border = '1px solid #ccc';
-
+    
     container.appendChild(iframe);
   });
 </script>
