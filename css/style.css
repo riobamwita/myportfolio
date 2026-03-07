@@ -137,7 +137,7 @@ footer {
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  gap: 10px;
+  gap: 40px;
 }
 
 .intro-image {
