@@ -448,21 +448,38 @@ footer {
     font-size: 1.15rem;
   }
 
-  .service-row {
-    grid-template-columns: 1fr;
-  }
+.service-row {
+  display: flex;            /* switch to flex for easier vertical stacking inside the info */
+  gap: 20px;
+  padding: 15px 24px;
+  border-radius: 16px;
+  background: #121914;
+  border: 1px solid #2a5536;
+  text-decoration: none;
+  color: inherit;
+}
 
-  .service-row img {
-    margin-bottom: 6px;
-  }
+.service-row img {
+  width: 72px;
+  flex-shrink: 0;
+  align-self: flex-start;
+}
 
-  .service-info h3 {
-    font-size: 1.42rem;
-  }
+.service-info {
+  display: flex;
+  flex-direction: column;  /* stack title above description */
+}
 
-  .service-info p {
-    font-size: 1.02rem;
-  }
+.service-info h3 {
+  text-decoration: underline;
+  text-decoration-color: var(--accent);
+  text-underline-offset: 6px;
+  margin-bottom: 6px;      /* space between title and description */
+}
+
+.service-info p {
+  margin: 0;
+}
 
   .about h1 {
     text-align: center;
