@@ -1606,19 +1606,76 @@ body.modal-open {
   cursor:pointer;
 }
 /* =====================
-   FONT SCALE CONTROL
+   COMPLETE FONT SCALE CONTROL
 ===================== */
 
+/* Base font */
 html {
   font-size: clamp(14px, 1vw, 16px);
 }
 
-/* Prevent extreme heading scaling */
+/* Headings */
 h1 { font-size: clamp(1.8rem, 3vw, 2.4rem); }
 h2 { font-size: clamp(1.4rem, 2.5vw, 2rem); }
 h3 { font-size: clamp(1.1rem, 2vw, 1.5rem); }
+h4 { font-size: clamp(1rem, 1.8vw, 1.3rem); }
+h5 { font-size: clamp(0.95rem, 1.5vw, 1.1rem); }
+h6 { font-size: clamp(0.9rem, 1.2vw, 1rem); }
 
-/* Prevent paragraph overflow */
-p {
-  font-size: clamp(0.9rem, 1.1vw, 1.15rem);
+/* Paragraphs */
+p,
+.intro-text h2,
+.service-info p,
+.about-content p,
+.testimonial-text p,
+.project-text p,
+.contact p,
+.youtube-description {
+  font-size: clamp(0.9rem, 1vw, 1.15rem);
+}
+
+/* Buttons */
+button,
+.cv-btn,
+.work-btn,
+.tip-btn,
+.services-toggle button,
+.merch-toggle button {
+  font-size: clamp(0.85rem, 0.95vw, 1rem);
+}
+
+/* Card titles */
+.service-info h3,
+.testimonial-text h3,
+.project-text h2,
+.cv-download h2,
+.terms-card h2,
+.merch-card .price,
+.service-card .price {
+  font-size: clamp(1.1rem, 1.5vw, 1.5rem);
+}
+
+/* Navigation links */
+.nav-links li a {
+  font-size: clamp(0.95rem, 1vw, 1.05rem);
+}
+
+/* Footer text */
+footer,
+.contact-socials a,
+.contact-location {
+  font-size: clamp(0.8rem, 0.9vw, 0.95rem);
+}
+
+/* Optional: Prevent extreme scaling on small mobile cards */
+.service-row,
+.testimonial-card,
+.project-card,
+.merch-card,
+.service-card,
+.about-content,
+.cv-download,
+.terms-card,
+.contact form {
+  font-size: clamp(0.9rem, 1vw, 1rem);
 }
