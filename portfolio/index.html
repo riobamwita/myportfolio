@@ -598,23 +598,29 @@
 <script src="/js/main.js"></script>
 <script>
   // Function to show specific service cards
-  function showServiceCards(service) {
-    const allCards = document.querySelectorAll('.project-card');
-    allCards.forEach(card => {
-      if (service === 'all' || card.dataset.service === service) {
-        card.style.display = 'grid'; // or 'block', depending on your layout
-      } else {
-        card.style.display = 'none';
-      }
-    });
-    // Show 'view more services' link only if not showing all
-    const viewMore = document.getElementById('viewMoreServices');
-    if (service !== 'all') {
-      viewMore.style.display = 'block';
+function showServiceCards(service) {
+
+  const allCards = document.querySelectorAll('.project-card');
+  const viewMore = document.getElementById('viewMoreServices');
+  const title = document.getElementById("portfolioTitle");
+
+  allCards.forEach(card => {
+    if (service === 'all' || card.dataset.service === service) {
+      card.style.display = 'grid';
     } else {
-      viewMore.style.display = 'none';
+      card.style.display = 'none';
     }
+  });
+
+  if (service === 'all') {
+    viewMore.style.display = 'none';
+    title.textContent = "Selected Work";
+    openedFromService = false; // prevent scroll script from showing it again
+  } else {
+    viewMore.style.display = 'block';
   }
+
+}
 
   // On page load, check if a service is in URL hash
 document.addEventListener('DOMContentLoaded', () => {
