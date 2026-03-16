@@ -62,7 +62,7 @@ header {
   max-width: 1200px;
   margin: 0 auto;
   display: flex;
-  justify-content: flex-end; /* always right aligned */
+  justify-content: center;
   align-items: center;
   padding: 12px 24px;
 }
@@ -133,9 +133,8 @@ footer {
 .intro-wrapper {
   max-width: 1100px;
   margin: 0 auto;
-
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
   align-items: center;
   gap: 40px;
 }
