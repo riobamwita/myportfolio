@@ -559,7 +559,7 @@
 <div id="webDevModal" class="modal-overlay">
   <div class="modal-content" style="overflow-y:auto; max-height:90vh; 
                                    position:relative; color:white; 
-                                   background: url('assets/images/developer.png') center center no-repeat; 
+                                   background: url('/assets/images/developer.png') center center no-repeat; 
                                    background-size: contain;">
     <div style="position:relative; z-index:5; padding:1rem; background: rgba(3, 1, 6, 0.916); border-radius:8px;">
 
@@ -794,36 +794,100 @@ window.addEventListener('load', () => {
 
 // MODAL LOADER FUNCTION
 function setupModalWithLoader(modalId) {
+
   const modal = document.getElementById(modalId);
   const content = modal.querySelector(".modal-content");
-  
-  // Create loader inside modal
+
+  // Create loader
   const modalLoader = document.createElement('div');
   modalLoader.className = 'modal-spinner-overlay';
   modalLoader.innerHTML = '<div class="spinner"></div>';
+  modalLoader.style.display = 'none';
   content.appendChild(modalLoader);
 
-  // Show loader while heavy content is loading
-  const images = content.querySelectorAll('img, iframe');
-  let loadedCount = 0;
-  const totalCount = images.length;
+  // Function to start loader when modal opens
+  function startLoading(){
 
-  if(totalCount === 0){
-    modalLoader.style.display = 'none';
-    return;
+    modalLoader.style.display = 'flex';
+    modalLoader.style.opacity = '1';
+
+    const media = content.querySelectorAll('img, iframe');
+    let loadedCount = 0;
+    const totalCount = media.length;
+
+    // If no media → hide instantly
+    if(totalCount === 0){
+      hideLoader();
+      return;
+    }
+
+    function checkAllLoaded(){
+      if(loadedCount >= totalCount){
+        hideLoader();
+      }
+    }
+
+    function hideLoader(){
+      modalLoader.style.opacity = '0';
+      setTimeout(()=> modalLoader.style.display='none', 300);
+    }
+
+    media.forEach(el => {
+
+      // ✅ Already loaded (cached images)
+      if(el.complete){
+        loadedCount++;
+        checkAllLoaded();
+      } else {
+
+        el.addEventListener('load', () => {
+          loadedCount++;
+          checkAllLoaded();
+        });
+
+        el.addEventListener('error', () => {
+          loadedCount++;
+          checkAllLoaded();
+        });
+      }
+
+    });
+
+    // ✅ FAILSAFE: never spin forever
+    setTimeout(() => {
+      hideLoader();
+    }, 3000);
+
   }
 
-  images.forEach(el => {
-    el.addEventListener('load', () => {
-      loadedCount++;
-      if(loadedCount === totalCount){
-        modalLoader.style.opacity = '0';
-        modalLoader.style.transition = 'opacity 0.3s ease';
-        setTimeout(()=> modalLoader.style.display='none', 300);
-      }
-    });
+  // Trigger loader when modal becomes visible
+  const observer = new MutationObserver(() => {
+    if(modal.style.display === "flex"){
+      startLoading();
+    }
   });
+
+  observer.observe(modal, { attributes: true, attributeFilter: ['style'] });
 }
+
+
+// INIT ALL MODALS
+document.addEventListener("DOMContentLoaded", () => {
+
+  const modalIds = [
+    "environmentModal",
+    "landSurveyModal",
+    "webMapModal",
+    "researchModal",
+    "landCoverModal",
+    "riskAssessmentModal",
+    "spatialModellingModal",
+    "webDevModal"
+  ];
+
+  modalIds.forEach(setupModalWithLoader);
+
+});
 
 // Initialize all modals
 document.addEventListener('DOMContentLoaded', () => {
