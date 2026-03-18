@@ -587,13 +587,11 @@ function nextSlide(){
   showSlide(currentSlide);
 }
 
-// auto-slide every 4 seconds
-setInterval(nextSlide, 4000);
-window.addEventListener('scroll', () => {
-  if (modalOverlay.style.display === 'flex') {
-    modalOverlay.style.display = 'none';
-  }
-});
+// 👉 First switch happens quickly, then normal speed
+setTimeout(() => {
+  nextSlide();
+  setInterval(nextSlide, 3000);
+}, 800);
 </script>
 
 </body>
