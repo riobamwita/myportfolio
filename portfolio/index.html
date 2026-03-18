@@ -1014,18 +1014,23 @@ document.querySelectorAll('.filter-bar button').forEach(btn => {
 
   });
 });
-// Check if any modal is open
 function isAnyModalOpen() {
   return [...document.querySelectorAll('.modal-overlay')]
-    .some(modal => modal.style.display === 'flex');
+    .some(modal => {
+      const style = window.getComputedStyle(modal);
+      return (
+        style.display !== "none" &&
+        style.visibility !== "hidden" &&
+        style.opacity !== "0"
+      );
+    });
 }
 
-// Control button visibility (reusable)
 function updateFloatingButton() {
 
   if (!openedFromService) return;
 
-  // 🚫 Hide if modal open
+  // 🚫 HARD BLOCK
   if (isAnyModalOpen()) {
     floatingBtn.style.display = "none";
     return;
@@ -1037,24 +1042,22 @@ function updateFloatingButton() {
 
   const distanceFromBottom = documentHeight - (scrollTop + windowHeight);
 
-  if (distanceFromBottom < 200) {
-    floatingBtn.style.display = "block";
-  } else {
-    floatingBtn.style.display = "none";
-  }
+  floatingBtn.style.display = distanceFromBottom < 200 ? "block" : "none";
 }
 
-// Scroll listener
+// Scroll
 window.addEventListener("scroll", updateFloatingButton);
 
-// Watch modals (open + close)
+// Observe modal changes
 document.querySelectorAll('.modal-overlay').forEach(modal => {
-  const observer = new MutationObserver(() => {
-    updateFloatingButton(); // ✅ handles BOTH open & close
-  });
+  const observer = new MutationObserver(updateFloatingButton);
 
-  observer.observe(modal, { attributes: true, attributeFilter: ['style'] });
+  observer.observe(modal, { 
+    attributes: true, 
+    attributeFilter: ['style', 'class'] 
+  });
 });
+
 </script>
 
 </body>
