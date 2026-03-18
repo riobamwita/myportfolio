@@ -63,14 +63,15 @@ body{
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%;       /* fill container */
-  object-fit: cover;  /* preserve aspect ratio and cover area */
+  height: 100%;
+  object-fit: cover;
   opacity: 0;
-  transition: opacity 1s ease-in-out;
+  transition: opacity 1s ease-in-out, transform 6s ease;
 }
 
 .hero-slideshow img.active {
   opacity: 1;
+  transform: scale(1.05);
 }
 
 .hero::before {
