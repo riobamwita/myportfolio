@@ -1688,6 +1688,15 @@ body.modal-open {
 .youtube-link {
   margin-top: 1rem;
 }
+.youtube-link a {
+  color: #ff0000; /* YouTube red */
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.youtube-link a:hover {
+  text-decoration: underline;
+}
 .modal-top-close{
   position:sticky;
   top:10px;
