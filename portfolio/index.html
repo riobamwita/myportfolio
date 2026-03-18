@@ -751,7 +751,7 @@ function showServiceCards(service) {
   });
 
   if (service === 'all') {
-    viewMore.style.display = 'none';
+    updateFloatingButton();
     title.textContent = "Selected Work";
     openedFromService = false;
 
@@ -765,7 +765,7 @@ function showServiceCards(service) {
       .forEach(b => b.classList.remove('active'));
 
   } else {
-    viewMore.style.display = 'block';
+    updateFloatingButton(); // ✅ respect modal state
   }
 
 }
@@ -1028,9 +1028,12 @@ function isAnyModalOpen() {
 
 function updateFloatingButton() {
 
-  if (!openedFromService) return;
+  if (!openedFromService) {
+    floatingBtn.style.display = "none";
+    return;
+  }
 
-  // 🚫 HARD BLOCK
+  // 🚫 Hide if modal is open
   if (isAnyModalOpen()) {
     floatingBtn.style.display = "none";
     return;
