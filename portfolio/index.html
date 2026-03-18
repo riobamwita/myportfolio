@@ -42,7 +42,14 @@
 <section class="portfolio-section">
 
   <h1 id="portfolioTitle">Selected Work</h1>
-
+<div class="filter-bar">
+  <button onclick="showServiceCards('all')">All</button>
+  <button onclick="showServiceCards('cartography')">Cartography</button>
+  <button onclick="showServiceCards('environmental-services')">Environmental Services</button>
+  <button onclick="showServiceCards('land-survey')">Land Survey</button>
+  <button onclick="showServiceCards('research-assistance')">Research</button>
+  <button onclick="showServiceCards('web-development')">Web Development</button>
+</div>
 <!-- WEB MAP -->
 <div class="project-card tappable" onclick="openWebMapModal()" data-service="cartography">
   <div class="project-text">
@@ -707,7 +714,12 @@ function showServiceCards(service) {
   if (service === 'all') {
     viewMore.style.display = 'none';
     title.textContent = "Selected Work";
-    openedFromService = false; // prevent scroll script from showing it again
+    openedFromService = false;
+
+    // remove active state from all buttons
+    document.querySelectorAll('.filter-bar button')
+      .forEach(b => b.classList.remove('active'));
+
   } else {
     viewMore.style.display = 'block';
   }
@@ -944,6 +956,19 @@ window.addEventListener("scroll", () => {
     floatingBtn.style.display = "none";
   }
 
+});
+document.querySelectorAll('.filter-bar button').forEach(btn => {
+  btn.addEventListener('click', () => {
+
+    document.querySelectorAll('.filter-bar button')
+      .forEach(b => b.classList.remove('active'));
+
+    // only add active if NOT "All"
+    if (btn.textContent !== "All") {
+      btn.classList.add('active');
+    }
+
+  });
 });
 </script>
 

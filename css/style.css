@@ -1869,4 +1869,46 @@ footer,
     margin-top: 0;
   }
 }
+.filter-bar {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin: 20px 0;
+  justify-content: left;
+}
 
+.filter-bar button {
+  padding: 8px 14px;
+  border: 1px solid #22d3ee;
+  background: transparent;
+  color: white;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  white-space: nowrap;
+}
+
+/* Active */
+.filter-bar button.active {
+  background: #22d3ee;
+  color: black;
+}
+
+/* MOBILE IMPROVEMENT */
+@media (max-width: 600px) {
+
+  .filter-bar {
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    padding-bottom: 5px;
+  }
+
+  .filter-bar::-webkit-scrollbar {
+    height: 4px;
+  }
+
+  .filter-bar button {
+    flex: 0 0 auto;
+  }
+}
