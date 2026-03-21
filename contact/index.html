@@ -251,9 +251,11 @@
 <!-- ================= TERMS, PAYMENT & DURATION ================= -->
 <section class="terms" id="terms">
   <div class="terms-card">
-    <h2>Service Terms & Duration</h2>
+    <h2 onclick="toggleTerms()" style="cursor:pointer;">
+      Service Terms & Duration ▼
+    </h2>
 
-    <div class="terms-content">
+    <div class="terms-content collapsed" id="termsContent">
       <h3>Project Duration (Estimated)</h3>
       <ul>
         <li><strong>Single GIS Map / Study Area:</strong> 1–2 working days</li>
@@ -538,6 +540,10 @@ window.addEventListener("click", function(event) {
     closeTipModal();
   }
 });
+function toggleTerms() {
+  const content = document.getElementById("termsContent");
+  content.classList.toggle("collapsed");
+}
 </script>
 
 <!-- ================= FOOTER ================= -->

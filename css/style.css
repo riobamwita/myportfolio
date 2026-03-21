@@ -2073,3 +2073,13 @@ footer,
     color: white !important;
   }
 }
+.terms-content.collapsed {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease;
+}
+
+.terms-content {
+  max-height: 2000px; /* large enough */
+  transition: max-height 0.4s ease;
+}
