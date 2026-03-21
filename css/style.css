@@ -2133,7 +2133,7 @@ footer,
 /* ===== MOBILE (KEEP HORIZONTAL) ===== */
 @media (max-width: 768px) {
   .services-stats {
-    flex-wrap: nowrap;        /* 🔥 force horizontal */
+    flex-wrap: wrap;        /* 🔥 force horizontal */
     gap: 16px;
   }
 
@@ -2159,7 +2159,7 @@ footer,
 /* MOBILE FIX */
 @media (max-width: 768px) {
   .services-stats {
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
     overflow-x: auto;
     gap: 14px;
     padding: 16px 18px;
