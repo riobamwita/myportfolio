@@ -544,6 +544,39 @@ function toggleTerms() {
   const content = document.getElementById("termsContent");
   content.classList.toggle("collapsed");
 }
+function toggleServices() {
+  const grid = document.getElementById("servicesGrid");
+  const btn = document.getElementById("toggleServicesBtn");
+
+  // Store scroll position before toggling
+  const scrollBefore = window.scrollY;
+
+  grid.classList.toggle("collapsed");
+
+  if (grid.classList.contains("collapsed")) {
+    btn.textContent = "View More";
+    // Restore scroll position after collapse
+    window.scrollTo({ top: scrollBefore, behavior: "instant" });
+  } else {
+    btn.textContent = "View Less";
+  }
+}
+
+function toggleMerch() {
+  const grid = document.getElementById("merchGrid");
+  const btn = document.getElementById("toggleMerchBtn");
+
+  const scrollBefore = window.scrollY;
+
+  grid.classList.toggle("collapsed");
+
+  if (grid.classList.contains("collapsed")) {
+    btn.textContent = "View More";
+    window.scrollTo({ top: scrollBefore, behavior: "instant" });
+  } else {
+    btn.textContent = "View Less";
+  }
+}
 </script>
 
 <!-- ================= FOOTER ================= -->
