@@ -401,8 +401,8 @@ footer {
   padding: 0;
   margin-top: 16px;
 
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  display: flex;
+  flex-direction: column; /* ✅ stack vertically */
   gap: 16px;
 }
 
