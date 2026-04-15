@@ -4,6 +4,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>AutoHub Motors</title>
 
+<link rel="icon" type="image/png" href="/assets/images/carfavicon.png">
 <style>
 *{margin:0;padding:0;box-sizing:border-box;}
 
@@ -173,6 +174,70 @@ html {
   scroll-padding-top: 100px;
 }
 
+#contact{
+  text-align:center;
+  padding:80px 20px;
+  background:linear-gradient(145deg, rgba(255,255,255,0.03), rgba(0,0,0,0.25));
+  border-top:1px solid rgba(255,255,255,0.06);
+}
+
+#contact h2{
+  font-size:36px;
+  margin-bottom:35px;
+  font-weight:700;
+  letter-spacing:1px;
+  background:linear-gradient(90deg,#22d3ee,#3b82f6);
+  -webkit-background-clip:text;
+  color:transparent;
+}
+
+.contact-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(220px, 1fr));
+  gap:18px;
+  max-width:900px;
+  margin:0 auto;
+}
+
+.contact-card{
+  padding:22px;
+  border-radius:18px;
+  background:rgba(255,255,255,0.04);
+  border:1px solid rgba(255,255,255,0.08);
+  backdrop-filter:blur(14px);
+  transition:0.3s ease;
+}
+
+.contact-card:hover{
+  transform:translateY(-6px);
+  border-color:#22d3ee;
+  box-shadow:0 20px 40px rgba(0,0,0,0.5);
+}
+
+.contact-label{
+  font-size:12px;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  color:#94a3b8;
+  margin-bottom:10px;
+}
+
+.contact-value{
+  font-size:16px;
+  font-weight:600;
+  color:#e2e8f0;
+}
+
+.contact-card a{
+  color:#e2e8f0;
+  text-decoration:none;
+  transition:0.3s;
+}
+
+.contact-card a:hover{
+  color:#22d3ee;
+}
+
 .scroll-line::after{
   content:"";
   position:absolute;
@@ -263,10 +328,10 @@ html {
   font-size:12px;
 }
 
-.badge.Luxury{background:#ff007f;}
-.badge.SUV{background:#22d3ee;}
-.badge.Sport{background:#ff3d00;}
-.badge.Popular{background:#ffd700;}
+.badge.Luxury{background:#542039;}
+.badge.SUV{background:#0b1517;}
+.badge.Sport{background:#351a38;}
+.badge.Popular{background:#322e14;}
 .badge.Off-Road{background:#4caf50;}
 
 .info{padding:15px;}
@@ -320,13 +385,13 @@ html {
 #contact h2{
   font-size:32px;
   margin-bottom:20px;
-  background:linear-gradient(90deg,#22d3ee,#3b82f6);
+  background:linear-gradient(90deg,#d7da07,#98c911);
   -webkit-background-clip:text;
   color:transparent;
 }
 
 #contact p{
-  color:#94a3b8;
+  color:#8f7812;
   margin:8px 0;
 }
 
@@ -440,7 +505,7 @@ footer{
   <div class="hero-content">
     <h1>Featured Car: Porsche Cayenne</h1>
     <p>Luxury SUV with performance, comfort, and advanced technology.</p>
-    <button class="btn" onclick="openModal('Porsche Cayenne','Full specs and premium features included.')">Explore</button>
+    <button class="btn" disabled>Explore</button>
   </div>
 <div class="scroll-wrap">
   <span>Scroll Down</span>
@@ -542,10 +607,33 @@ footer{
 </section>
 
 <section id="contact">
-<h2>Contact Us</h2>
-<p><a href="tel:+254729709807">+254729709807</a></p>
-<p>Opp Westgate Mall, Nairobi</p>
-<p><a href="mailto:info@autohubmotors.com">info@autohubmotors.com</a></p>
+  <h2>Contact Us</h2>
+
+  <div class="contact-grid">
+
+    <div class="contact-card">
+      <div class="contact-label">Phone</div>
+      <div class="contact-value">
+        <a href="tel:+254729709807">+254 729 709 807</a>
+      </div>
+    </div>
+
+    <div class="contact-card">
+      <div class="contact-label">Email</div>
+      <div class="contact-value">
+        <a href="mailto:info@autohubmotors.com">info@autohubmotors.com</a>
+      </div>
+    </div>
+
+    <div class="contact-card">
+      <div class="contact-label">Location</div>
+      <div class="contact-value">
+        Opp Westgate, Nairobi
+      </div>
+    </div>
+
+  </div>
+
 </section>
 
 <footer>© 2026 AutoHub Motors</footer>
@@ -577,6 +665,7 @@ card.style.display=(cat==='All'||card.dataset.category===cat)?'block':'none';
 const modalOverlay = document.getElementById('modal-overlay');
 const modalTitle = document.getElementById('modal-title');
 const modalContent = document.getElementById('modal-content');
+const closeBtn = document.querySelector('.close-btn');
 
 function openModal(title, content) {
   modalTitle.textContent = title;
@@ -584,42 +673,30 @@ function openModal(title, content) {
   modalOverlay.style.display = 'flex';
 }
 
-document.addEventListener('click', (e) => {
-  const card = e.target.closest('.card');
-  if (!card) return;
+function closeModal() {
+  modalOverlay.style.display = 'none';
+}
 
-  // VIEW DETAILS BUTTON
-  if (e.target.classList.contains('view-details-btn')) {
+/* OPEN: View Details */
+document.querySelectorAll('.view-details-btn').forEach(btn => {
+  btn.addEventListener('click', (e) => {
+    const card = e.target.closest('.card');
     openModal(
-      card.dataset.title,
+      card.querySelector('h4').textContent,
       card.dataset.details
     );
-  }
-
-  // EXPLORE BUTTON (hero or reused button)
-  if (e.target.classList.contains('btn') && !e.target.classList.contains('view-details-btn')) {
-    openModal(
-      card.dataset.title || "Featured Car",
-      card.dataset.details || "No details available."
-    );
-  }
+  });
 });
 
-document.querySelector('.close-btn').onclick = () => {
-  modalOverlay.style.display = 'none';
-};
+/* CLOSE: button */
+closeBtn.addEventListener('click', closeModal);
 
-modalOverlay.onclick = (e) => {
+/* CLOSE: click outside modal */
+modalOverlay.addEventListener('click', (e) => {
   if (e.target === modalOverlay) {
-    modalOverlay.style.display = 'none';
+    closeModal();
   }
-};
-
-function openModal(title,text){
-modalTitle.textContent=title;
-modalContent.textContent=text;
-modalOverlay.style.display='flex';
-}
+});
 
 const slides=document.querySelectorAll('.slide');
 let currentSlide=0;
