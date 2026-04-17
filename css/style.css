@@ -2181,3 +2181,98 @@ footer,
     display: inline;
   }
 }
+
+/* WEB DEV MODAL CLEAN LAYOUT */
+#webDevModal .modal-content {
+  font-family: 'Poppins', sans-serif;
+  line-height: 1.7;
+  letter-spacing: 0.3px;
+}
+
+/* Headings */
+
+
+#webDevModal h3 {
+  font-size: 1.4rem;
+  margin-top: 2rem;
+  margin-bottom: 0.8rem;
+}
+
+/* Paragraphs */
+#webDevModal p {
+  margin-bottom: 1.2rem;
+  font-size: 0.95rem;
+  color: #e5e7eb;
+}
+
+/* Lists */
+#webDevModal ol,
+#webDevModal ul {
+  margin: 1rem 0 1.5rem 1.2rem;
+  padding-left: 1rem;
+}
+
+#webDevModal li {
+  margin-bottom: 0.6rem;
+}
+
+/* Section spacing */
+#webDevModal section,
+#webDevModal .demo-block {
+  margin-bottom: 2rem;
+}
+
+/* Images / demo containers */
+#webDevModal img {
+  border-radius: 10px;
+}
+
+#webDevModal div[style*="aspect-ratio"] {
+  margin: 1.5rem 0;
+}
+
+/* Separator */
+#webDevModal hr {
+  margin: 2rem 0;
+}
+
+/* TAP TO INTERACT BUTTON ANIMATION */
+.tap-interact {
+  animation: heartbeat 1.8s infinite, pulseGlow 2.2s infinite;
+  transition: transform 0.2s ease;
+}
+
+/* HEARTBEAT EFFECT */
+@keyframes heartbeat {
+  0%   { transform: translateX(-50%) scale(1); }
+  15%  { transform: translateX(-50%) scale(1.1); }
+  30%  { transform: translateX(-50%) scale(1); }
+  45%  { transform: translateX(-50%) scale(1.1); }
+  70%  { transform: translateX(-50%) scale(1); }
+  100% { transform: translateX(-50%) scale(1); }
+}
+
+/* GLOW PULSE */
+@keyframes pulseGlow {
+  0% {
+    box-shadow: 0 0 0 0 rgba(34, 211, 238, 0.6);
+  }
+  70% {
+    box-shadow: 0 0 0 12px rgba(34, 211, 238, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(34, 211, 238, 0);
+  }
+}
+
+/* HOVER = STOP ANIMATION + SLIGHT ZOOM */
+.tap-interact:hover {
+  animation: none;
+  transform: scale(1.1);
+}
+
+/* STAGGER EFFECT (optional but included) */
+.tap-interact:nth-of-type(1) { animation-delay: 0s; }
+.tap-interact:nth-of-type(2) { animation-delay: 0.4s; }
+.tap-interact:nth-of-type(3) { animation-delay: 0.8s; }
+.tap-interact:nth-of-type(4) { animation-delay: 1.2s; }

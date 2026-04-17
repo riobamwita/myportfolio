@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <rect width="100" height="100" rx="20" fill="#0ea5e9"></rect>
+  <path d="M20 55 L50 25 L80 55 V85 H20 Z" fill="white"></path>
+  <text x="50" y="78" font-size="20" text-anchor="middle" fill="#020617" font-family="Arial" font-weight="bold">UH</text>
+</svg>
