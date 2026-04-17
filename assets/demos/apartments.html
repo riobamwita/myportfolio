@@ -335,8 +335,8 @@ color:#777;
     display:none;
     justify-content:center;
     align-items:center;
-    background:rgba(0,0,0,0.92);
-    backdrop-filter:blur(10px);
+    background:transparent; /* REMOVE DARK BACKGROUND */
+    backdrop-filter:none;   /* REMOVE BLUR */
     z-index:2000;
 }
 
@@ -487,6 +487,11 @@ transform:scale(1.1);
     padding: 0;
 }
 
+.clean-modal{
+    background: transparent; /* no box */
+    box-shadow: none;
+}
+
 /* HEADER */
 .modal-header{
     padding: 20px 25px 10px;
@@ -523,6 +528,31 @@ transform:scale(1.1);
     height: auto;
     max-height: 75vh;
     object-fit: contain; /* IMPORTANT: keeps original proportions */
+}
+
+.modal-image-wrapper{
+    background: transparent;
+}
+
+.modal-image-wrapper img{
+    max-height: 85vh;
+    border-radius: 16px;
+    box-shadow: 0 25px 80px rgba(0,0,0,0.8);
+}
+
+.modal-controls{
+    position:fixed;
+    bottom:30px;
+    left:50%;
+    transform:translateX(-50%);
+}
+
+.close{
+    top:20px;
+    right:25px;
+    background:rgba(0,0,0,0.5);
+    padding:5px 12px;
+    border-radius:10px;
 }
 
 /* BODY */
@@ -718,6 +748,33 @@ body {
     padding: 12px;
     border-bottom: 1px solid rgba(255,255,255,0.08);
   }
+}
+
+.location-intro{
+  text-align:center;
+  color:#aaa;
+  max-width:600px;
+  margin:0 auto 25px;
+  line-height:1.6;
+}
+
+.location-details{
+  margin-top:20px;
+  text-align:center;
+  color:#cbd5f5;
+  max-width:700px;
+  margin-left:auto;
+  margin-right:auto;
+  line-height:1.8;
+}
+
+.location-details p{
+  margin-bottom:10px;
+}
+
+.modal:fullscreen img {
+    max-height: 100vh;
+    object-fit: contain;
 }
 
 </style>
@@ -965,23 +1022,27 @@ body {
 </section>
 
 <!-- LOCATION -->
-<section class="section" id="location">
-<h2 style="text-align:center;">Location</h2>
-<p style="text-align:center; color:#aaa; margin-bottom:20px;">
-Prime location with easy access to key amenities and transport.
-</p>
+<section id="location" class="section">
+  <h2>Location</h2>
 
-<div class="map-container">
+  <p class="location-intro">
+    Strategically positioned in Old Muthaiga, Unity Homes offers the perfect balance of 
+    urban convenience and residential tranquility.
+  </p>
+
+  <div class="map-container">
     <iframe 
-    src="https://www.google.com/maps?q=Old+Muthaiga+Nairobi&t=k&z=16&output=embed"
-    allowfullscreen=""
-    loading="lazy">
-</iframe>
-</div>
-<div style="text-align:center; margin-top:15px; color:#ccc;">
- 20 mins to CBD • Near malls • Close to schools
-</div>
+      src="https://www.google.com/maps?q=Old+Muthaiga+Nairobi&t=k&z=16&output=embed"
+      loading="lazy">
+    </iframe>
+  </div>
 
+  <div class="location-details">
+    <p><strong>Connectivity:</strong> Only 20 minutes to Nairobi CBD with smooth access roads.</p>
+    <p><strong>Lifestyle:</strong> Close proximity to major malls, restaurants, and entertainment hubs.</p>
+    <p><strong>Education:</strong> Surrounded by top-tier schools and learning institutions.</p>
+    <p><strong>Security:</strong> Located in a well-established and secure neighborhood.</p>
+  </div>
 </section>
 
 <section id="booking" class="section">
@@ -990,7 +1051,7 @@ Prime location with easy access to key amenities and transport.
 <form class="booking-form" onsubmit="sendBooking(event)">
 <input type="text" placeholder="Full Name" required>
 <input type="tel" placeholder="Phone Number" required>
-<input type="date" required>
+<input type="text" id="booking-date" placeholder="Select Booking Date" readonly required>
 
 <button type="submit">Confirm Booking</button>
 </form>
@@ -1212,6 +1273,7 @@ document.addEventListener("DOMContentLoaded", function () {
     function openAmenity(i) {
     mode = "amenity";
     index = i;
+    imgIndex = 0; // ✅ RESET EVERY TIME
 
     modal.classList.add("active");
     modal.classList.add("amenity-mode");
@@ -1237,8 +1299,6 @@ document.addEventListener("DOMContentLoaded", function () {
     // =========================
 function renderAmenity() {
     const item = amenities[index];
-
-    let imgIndex = 0;
 
     img.src = item.images[imgIndex];
     info.innerHTML = item.description;
@@ -1288,6 +1348,22 @@ document.addEventListener("click", (e) => {
   }
 });
 
+const dateInput = document.getElementById("booking-date");
+
+dateInput.addEventListener("click", () => {
+  dateInput.type = "date";
+
+  if (dateInput.showPicker) {
+    dateInput.showPicker();
+  }
+});
+
+dateInput.addEventListener("blur", () => {
+  if (!dateInput.value) {
+    dateInput.type = "text";
+  }
+});
+
     // =========================
     // RENDER GALLERY
     // =========================
@@ -1310,6 +1386,16 @@ document.addEventListener("click", (e) => {
     };
 }
 
+window.toggleFullscreen = function () {
+    const modalEl = document.querySelector(".modal");
+
+    if (!document.fullscreenElement) {
+        modalEl.requestFullscreen();
+    } else {
+        document.exitFullscreen();
+    }
+};
+
     // =========================
     // CLOSE
     // =========================
@@ -1317,6 +1403,7 @@ document.addEventListener("click", (e) => {
     modal.classList.remove("active", "gallery-mode", "amenity-mode");
 
     index = 0;
+    imgIndex = 0; // ✅ important
     mode = "gallery";
 
     img.src = "";
