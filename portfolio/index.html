@@ -706,11 +706,11 @@ This demo showcases a basic management system with login, records, and administr
   
   <!-- School System Image -->
   <img 
-    src="/assets/images/organisations.png" 
-    alt="School System Demo" 
-    style="width: 100%; height:100%; object-fit:cover; display:block;"
-    onclick="window.open('/assets/demos/login.html', '_blank')"
-  >
+  src="/assets/images/organisations.png" 
+  alt="School System Demo" 
+  style="width: 100%; height:100%; object-fit:cover; display:block;"
+  onclick="event.stopPropagation(); showToast('Something went wrong')"
+/>
 
   <!-- Tap Button Overlay -->
   <button
@@ -740,13 +740,17 @@ Beyond development, I focus on building systems that are practical, scalable, an
 
 <script>
   document.querySelectorAll('.tap-interact').forEach(btn => {
-  btn.addEventListener('click', () => {
+  btn.addEventListener('click', (e) => {
+    e.preventDefault();
+    e.stopPropagation(); // 🔥 critical fix
+
     const target = btn.dataset.target;
     if (target) {
       window.open(target, '_blank');
     }
   });
 });
+
 // Modal open/close functions
 function openWebDevModal() {
   document.getElementById('webDevModal').style.display = 'flex';
@@ -1090,6 +1094,19 @@ function updateFloatingButton() {
   floatingBtn.style.display = distanceFromBottom < 200 ? "block" : "none";
 }
 
+function showToast(message) {
+  const toast = document.getElementById("toastMessage");
+
+  if (!toast) return; // ✅ safety guard
+
+  toast.textContent = message;
+  toast.classList.add("show");
+
+  setTimeout(() => {
+    toast.classList.remove("show");
+  }, 2500);
+}
+
 // Scroll
 window.addEventListener("scroll", updateFloatingButton);
 
@@ -1104,6 +1121,6 @@ document.querySelectorAll('.modal-overlay').forEach(modal => {
 });
 
 </script>
-
+<div id="toastMessage" class="toast-message"></div>
 </body>
 </html>

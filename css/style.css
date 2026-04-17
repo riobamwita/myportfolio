@@ -2238,18 +2238,18 @@ footer,
 
 /* TAP TO INTERACT BUTTON ANIMATION */
 .tap-interact {
+  transform: translateX(-50%);
   animation: heartbeat 1.8s infinite, pulseGlow 2.2s infinite;
-  transition: transform 0.2s ease;
 }
 
 /* HEARTBEAT EFFECT */
 @keyframes heartbeat {
-  0%   { transform: translateX(-50%) scale(1); }
-  15%  { transform: translateX(-50%) scale(1.1); }
-  30%  { transform: translateX(-50%) scale(1); }
-  45%  { transform: translateX(-50%) scale(1.1); }
-  70%  { transform: translateX(-50%) scale(1); }
-  100% { transform: translateX(-50%) scale(1); }
+  0%   { transform: scale(1); }
+  15%  { transform: scale(1.1); }
+  30%  { transform: scale(1); }
+  45%  { transform: scale(1.1); }
+  70%  { transform: scale(1); }
+  100% { transform: scale(1); }
 }
 
 /* GLOW PULSE */
@@ -2268,7 +2268,7 @@ footer,
 /* HOVER = STOP ANIMATION + SLIGHT ZOOM */
 .tap-interact:hover {
   animation: none;
-  transform: scale(1.1);
+  transform: translateX(-50%) scale(1.05);
 }
 
 /* STAGGER EFFECT (optional but included) */
@@ -2276,3 +2276,55 @@ footer,
 .tap-interact:nth-of-type(2) { animation-delay: 0.4s; }
 .tap-interact:nth-of-type(3) { animation-delay: 0.8s; }
 .tap-interact:nth-of-type(4) { animation-delay: 1.2s; }
+
+@media (max-width: 480px) {
+
+  .tap-interact {
+    font-size: 0.75rem;
+    padding: 5px 10px;
+  }
+
+  #webDevModal h2 {
+    font-size: 1.3rem;
+  }
+
+}
+
+@media (max-width: 768px) {
+
+  #webDevModal h3 {
+    font-size: 1.1rem;
+  }
+
+  #webDevModal p {
+    font-size: 0.85rem;
+    line-height: 1.6;
+  }
+
+  #webDevModal li {
+    font-size: 0.85rem;
+  }
+
+}
+
+
+.toast-message {
+  position: fixed;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0,0,0,0.85);
+  color: white;
+  padding: 12px 18px;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  z-index: 9999;
+}
+
+.toast-message.show {
+  opacity: 1;
+  transform: translateX(-50%) translateY(-5px);
+}
