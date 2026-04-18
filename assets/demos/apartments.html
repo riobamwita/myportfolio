@@ -740,26 +740,30 @@ body {
   }
 }
 
-.location-intro{
-  text-align:center;
-  color:#aaa;
-  max-width:600px;
-  margin:0 auto 25px;
-  line-height:1.6;
+.location-intro {
+  text-align: left;
+  color: #aaa;
+  max-width: 650px;
+  margin: 8px auto 20px;
+  line-height: 1.7;
 }
 
-.location-details{
-  margin-top:20px;
-  text-align:center;
-  color:#cbd5f5;
-  max-width:700px;
-  margin-left:auto;
-  margin-right:auto;
-  line-height:1.8;
+.location-details {
+  margin-top: 15px;
+  text-align: left;
+  color: #cbd5f5;
+  max-width: 750px;
+
+  /* keep centered block for structure */
+  margin-left: auto;
+  margin-right: auto;
+
+  line-height: 1.8;
 }
 
-.location-details p{
-  margin-bottom:10px;
+.location-details p {
+  margin-bottom: 10px;
+  text-align: left; /* cleaner for UI readability */
 }
 
 .modal:fullscreen img {
@@ -1188,11 +1192,6 @@ body.no-scroll {
 <section id="location" class="section">
   <h2>Location</h2>
 
-  <p class="location-intro">
-    Strategically positioned in Old Muthaiga, Unity Homes offers the perfect balance of 
-    urban convenience and residential tranquility.
-  </p>
-
   <div class="map-container">
     <iframe 
       src="https://www.google.com/maps?q=Old+Muthaiga+Nairobi&t=k&z=16&output=embed"
@@ -1233,9 +1232,9 @@ body.no-scroll {
 
     <!-- TOP CONTROLS -->
     <div class="top-controls">
-        <button onclick="closeGallery()">✕</button>
-        <button onclick="toggleFullscreen()">⛶</button>
-    </div>
+    <button onclick="closeGallery()">✕</button>
+    <button id="fullscreenBtn" onclick="toggleFullscreen()">⛶</button>
+</div>
 
     <!-- SIDE NAV -->
     <button class="nav-btn prev" onclick="prevImage()">⟨</button>
@@ -1440,7 +1439,6 @@ let mode = "gallery";// gallery | amenity
     const info = document.getElementById("modal-info");
     const titleEl = document.getElementById("modal-title");
     const badge = document.getElementById("modal-badge");
-    const controls = document.querySelector(".modal-controls");
 
     // =========================
     // OPEN AMENITY
@@ -1452,6 +1450,8 @@ let mode = "gallery";// gallery | amenity
 
     modal.classList.add("active", "amenity-mode");
     modal.classList.remove("gallery-mode");
+
+    fullscreenBtn.style.display = "none"; // ✅ hide here
 
     renderAmenity();
 }
@@ -1479,7 +1479,7 @@ function renderAmenity() {
     info.innerHTML = item.description;
     badge.innerText = item.badge;
     titleEl.innerText = item.title;
-    controls.style.display = "none";
+    
 document.querySelector(".nav-btn.prev").style.display = "none";
 document.querySelector(".nav-btn.next").style.display = "none";
 document.getElementById("image-counter").style.display = "none";
@@ -1550,7 +1550,7 @@ dateInput.addEventListener("blur", () => {
     info.innerText = `Image ${index + 1} of ${galleryImages.length}`;
     badge.innerText = "Gallery View";
 
-    controls.style.display = "flex";
+    
 document.querySelector(".nav-btn.prev").style.display = "block";
 document.querySelector(".nav-btn.next").style.display = "block";
 document.getElementById("image-counter").style.display = "block";
