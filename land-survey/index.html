@@ -12,15 +12,18 @@
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="../css/style.css">
+
+    <link rel="icon" type="image/png" href="/assets/images/favicon.png">
+<link rel="shortcut icon" href="/assets/images/favicon.png">
 </head>
 
 <body>
 
 <section class="page-section">
 
-    <div class="back-container">
-        <a href="/" class="back-btn">← Back Home</a>
-    </div>
+    <a href="/#projects" class="floating-back-btn">
+  ← Projects
+</a>
 
     <h1>Land Survey</h1>
 
@@ -98,6 +101,28 @@
 <footer>
     © 2026 Rioba R. Mwita
 </footer>
+
+<script>
+
+const toggle = document.getElementById('themeToggle');
+
+if(localStorage.getItem('theme') === 'dark'){
+    document.body.classList.add('dark-mode');
+}
+
+toggle.addEventListener('click', () => {
+
+    document.body.classList.toggle('dark-mode');
+
+    if(document.body.classList.contains('dark-mode')){
+        localStorage.setItem('theme','dark');
+    }else{
+        localStorage.setItem('theme','light');
+    }
+
+});
+
+</script>
 
 </body>
 </html>

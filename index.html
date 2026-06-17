@@ -20,7 +20,10 @@
 
 <body>
 
-  <!-- NAVIGATION -->
+    <button id="themeToggle" class="theme-toggle">
+    ☾
+</button>
+
 <header>
     <nav class="navbar">
 
@@ -38,8 +41,7 @@
     </nav>
 </header>
 
-  <!-- HERO -->
-  <section id="home" class="hero">
+<section id="home" class="hero">
 
     <img
       src="assets/images/me-icon.png"
@@ -64,7 +66,6 @@
 
   </section>
 
-  <!-- ABOUT PLACEHOLDER -->
   <section id="about" class="about">
 
     <div class="section-header">
@@ -108,7 +109,6 @@
 
 </section>
 
-<!-- PROJECTS -->
 <section id="projects" class="projects">
 
   <div class="section-header">
@@ -177,8 +177,7 @@
 </section>
 
 
-  <!-- CONTACT PLACEHOLDER -->
-  <section id="contact" class="contact">
+<section id="contact" class="contact">
 
     <div class="section-header">
         <h2>Get In Touch</h2>
@@ -241,11 +240,10 @@
 
 </section>
 
-<!-- PROFESSIONAL REFERENCES & RECOMMENDATIONS -->
 <section class="references-section">
 
     <div class="section-header">
-        <h2>References & Recommendations</h2>
+        <h2>References</h2>
 
         <p>
             Professionals who have supervised, mentored,
@@ -253,8 +251,6 @@
             surveying and software development applications.
         </p>
     </div>
-
-    <!-- RECOMMENDATIONS -->
 
     <div class="recommendation-list">
 
@@ -362,8 +358,6 @@
 
     </div>
 
-    <!-- REFERENCES -->
-
     <div class="reference-grid">
 
         <div class="reference-card">
@@ -397,6 +391,28 @@
   <footer>
     © 2026 Rioba R. Mwita
   </footer>
+
+<script>
+
+const toggle = document.getElementById('themeToggle');
+
+if(localStorage.getItem('theme') === 'dark'){
+    document.body.classList.add('dark-mode');
+}
+
+toggle.addEventListener('click', () => {
+
+    document.body.classList.toggle('dark-mode');
+
+    if(document.body.classList.contains('dark-mode')){
+        localStorage.setItem('theme','dark');
+    }else{
+        localStorage.setItem('theme','light');
+    }
+
+});
+
+</script>
 
 </body>
 </html>
