@@ -240,6 +240,20 @@
         </a>
 
     </div>
+    
+    <div class="share-section">
+
+    <div id="shareCard" class="share-card">
+
+        <img
+            src="assets/images/qrcode.png"
+            alt="Portfolio QR Code">
+
+        <span>Scan or Share Portfolio</span>
+
+    </div>
+
+    </div>
 
     <div class="contact-location">
 
@@ -247,7 +261,7 @@
              alt="Location">
 
         <p>
-            Nairobi, Kenya
+            Nairobi, Kenya.
         </p>
 
     </div>
@@ -451,6 +465,34 @@ window.addEventListener('scroll', () => {
         hireBtn.classList.add('show');
     }else{
         hireBtn.classList.remove('show');
+    }
+
+});
+
+const shareCard =
+document.getElementById('shareCard');
+
+shareCard.addEventListener('click', async () => {
+
+    if(navigator.share){
+
+        try{
+
+            await navigator.share({
+                title:'Rioba Mwita',
+                text:'Geospatial Engineer, Surveyor and Web Developer',
+                url:'https://riobamwitagis.sevalla.page'
+            });
+
+        }catch(err){}
+
+    }else{
+
+        navigator.clipboard.writeText(
+            'https://riobamwitagis.sevalla.page'
+        );
+
+        alert('Portfolio link copied.');
     }
 
 });
