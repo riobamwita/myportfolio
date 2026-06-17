@@ -206,10 +206,12 @@ body.dark-mode .nav-links a::after{
     border-radius:4px;
     overflow:hidden;
     transition:0.3s;
+    cursor:pointer;
 }
 
 .project-card:hover{
-    transform:translateY(-3px);
+    transform:translateY(-4px);
+    box-shadow:0 8px 20px rgba(0,0,0,.08);
 }
 
 .project-icon img{
@@ -226,24 +228,6 @@ body.dark-mode .nav-links a::after{
 .project-text h3{
     font-size:0.95rem;
     margin-bottom:10px;
-}
-
-.tap-btn{
-    width:36px;
-    height:36px;
-    margin:auto;
-    border-radius:50%;
-    background:#111;
-    color:white;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    font-size:0;
-}
-
-.tap-btn::after{
-    content:"→";
-    font-size:15px;
 }
 
 /* CONTACT */
