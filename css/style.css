@@ -549,6 +549,15 @@ body.dark-mode .page-section h1::after{
     font-weight:600;
 }
 
+.page-section h2::after{
+    content:"";
+    display:block;
+    width:70px;
+    height:2px;
+    background:#111;
+    margin:10px auto 0;
+}
+
 .page-section h3{
     font-size:1rem;
     margin-bottom:0;
